@@ -126,6 +126,29 @@
             containers[valorSeleccionado].style.display = "block";
           }
         });
+        // Seleccionamos los checkboxes y los contenedores del input
+const checkbox1 = document.getElementById("flexCheckDefault");
+const checkbox2 = document.getElementById("flexCheckChecked");
+const inputContainer1 = document.getElementById("input-container");
+const inputContainer2 = document.getElementById("input-container-2");
+
+// Función para mostrar u ocultar el input según el estado del checkbox
+checkbox1.addEventListener("change", () => {
+  if (checkbox1.checked) {
+    inputContainer1.style.display = "block"; // Muestra el primer input
+  } else {
+    inputContainer1.style.display = "none"; // Oculta el primer input
+  }
+});
+
+// Función para mostrar u ocultar el segundo input según el estado del checkbox
+checkbox2.addEventListener("change", () => {
+  if (checkbox2.checked) {
+    inputContainer2.style.display = "block"; // Muestra el segundo input
+  } else {
+    inputContainer2.style.display = "none"; // Oculta el segundo input
+  }
+});
       </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -182,31 +205,7 @@
           });
 
     </script>
-<script
-// Seleccionamos los checkboxes y los contenedores del input
-const checkbox1 = document.getElementById("flexCheckDefault");
-const checkbox2 = document.getElementById("flexCheckChecked");
-const inputContainer1 = document.getElementById("input-container");
-const inputContainer2 = document.getElementById("input-container-2");
 
-// Función para mostrar u ocultar el input según el estado del checkbox
-checkbox1.addEventListener("change", () => {
-  if (checkbox1.checked) {
-    inputContainer1.style.display = "block"; // Muestra el primer input
-  } else {
-    inputContainer1.style.display = "none"; // Oculta el primer input
-  }
-});
-
-// Función para mostrar u ocultar el segundo input según el estado del checkbox
-checkbox2.addEventListener("change", () => {
-  if (checkbox2.checked) {
-    inputContainer2.style.display = "block"; // Muestra el segundo input
-  } else {
-    inputContainer2.style.display = "none"; // Oculta el segundo input
-  }
-});
-</script>
 
   <!--  <script src="https://kit.fontawesome.com/a076d05399.js"></script>  -->
     <!-- <script src="whatsapp.js"></script> -->
