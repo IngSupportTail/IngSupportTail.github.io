@@ -23,14 +23,22 @@
         <label for="formSelect" class="form-label">Selecciona el Formulario</label>
         <select class="form-select" id="formSelect" aria-label="Selecciona el Formulario">
         <option selected>Open this select menu</option>
-        <option value="1">One</option>
+        <option value="1">Solicitud Boton Nuevo</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
      </select>
      <!-- Contenedores para cada opción -->
     <div id="container1" class="mt-3 container" style="display:none;">
-        <h3>Contenido para la opción One</h3>
-        <p>Este es el contenedor para la opción "One". Aquí puedes agregar más contenido relacionado con esta opción.</p>
+      <form id="formulario" class="formulario">
+        <h1>Envío de formulario por WhatsApp</h1>
+        <div class="box-input">
+            <input name="nombre de quien solicita" id="solicitante" type="text" required>
+            <span data-placeholder="Escriba su Nombre"></span>
+        </div>
+        <div class="box-input">
+            <input name="numero de telefono" id="contacto" type="text" required>
+            <span data-placeholder="Numero de contacto"></span>
+        </div>
       </div>
   
       <div id="container2" class="mt-3 container" style="display:none;">
