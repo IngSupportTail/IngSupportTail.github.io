@@ -166,18 +166,18 @@ function toggleInput() {
     var checkNo = document.getElementById('flexCheckNo');
     var inputDiv = document.getElementById('inputDiv');
 
-    // Si el checkbox "Sí" está marcado, muestra el input
+    // Si "Sí" está marcado, muestra el input y desmarca "No"
     if (checkSi.checked) {
       inputDiv.style.display = 'block';
-      checkNo.checked = false; // Desmarca el checkbox "No"
-    } else {
-      inputDiv.style.display = 'none';
+      checkNo.checked = false; // Desmarca "No"
     }
-
-    // Si el checkbox "No" está marcado, oculta el input y desmarca el checkbox "Sí"
-    if (checkNo.checked) {
+    // Si "No" está marcado, oculta el input y desmarca "Sí"
+    else if (checkNo.checked) {
       inputDiv.style.display = 'none';
-      checkSi.checked = false; // Desmarca el checkbox "Sí"
+      checkSi.checked = false; // Desmarca "Sí"
+    } else {
+      // Si ninguno está seleccionado, oculta el input
+      inputDiv.style.display = 'none';
     }
   }
       </script>
