@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--  <title>Envío de formulario por WhatsApp</title>-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -15,248 +14,138 @@
 <body>
 
     <div class="container">
-        <!--<img src="/Images/pechugon-header.png" class="img-fluid" alt="header"> -->
         <img src="/Images/pechugon-header.png" class="img-thumbnail" alt="header">
-      </div>
+    </div>
 
-       <div class="container mt-5">
+    <div class="container mt-5">
         <label for="formSelect" class="form-label">Selecciona el Formulario</label>
         <select class="form-select" id="formSelect" aria-label="Selecciona el Formulario">
-        <option selected>Open this select menu</option>
-        <option value="1">Solicitud Boton Nuevo</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-     </select>
-     <!-- Contenedores para cada opción -->
-    <div id="container1" class="mt-3 container" style="display:none;">
-     <!-- <form id="formulario" class="formulario"> -->
-        <h3>Solicitud para un boton nuevo</h3>
-        <div class="box-input">
-            <input name="solicita" id="solicita" type="text" required>
-            <span data-placeholder="Escriba su Nombre"></span>
+            <option selected>Open this select menu</option>
+            <option value="1">Solicitud Boton Nuevo</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+
+        <!-- Contenedor para la opción 1 -->
+        <div id="container1" class="mt-3 container" style="display:none;">
+            <h3>Solicitud para un boton nuevo</h3>
+            <div class="box-input">
+                <input name="solicita" id="solicita" type="text" required>
+                <span data-placeholder="Escriba su Nombre"></span>
+            </div>
+            <div class="box-input">
+                <input name="numero de telefono" id="contacto" type="text" required>
+                <span data-placeholder="Número de contacto"></span>
+            </div>
+            <div class="box-input">
+                <input name="ZonaSucursal" id="ZonaSucursal" type="text" required>
+                <span data-placeholder="Sucursal o Zona"></span>
+            </div>
+            <div class="box-input">
+                <input name="NombreBoton" id="NombreBoton" type="text" required>
+                <span data-placeholder="Escribe el nombre del Boton"></span>
+            </div>
+            <div class="box-input">
+                <input name="Producto" id="Producto" type="text" required>
+                <span data-placeholder="Escribe el nombre del producto principal a vender"></span>
+            </div>
+            <div class="box-input">
+                <input name="Cantidad" id="CantidadProducto" type="text" required>
+                <span data-placeholder="Que cantidad de producto lleva el paquete"></span>
+            </div>
+            <div class="box-input">
+                <input name="precio" id="precio" type="text" required>
+                <span data-placeholder="Indica el precio del paquete"></span>
+            </div>
+            <div class="box-input">
+                <input name="extras" id="extras" type="text" required>
+                <span data-placeholder="Coloca los extras que lleva el paquete"></span>
+            </div>
+
+            <!-- Checkbox para "El producto estará siempre disponible" -->
+            <div class="container">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleContainer()">
+                    <label class="form-check-label" for="flexCheckSi">
+                        Sí
+                    </label>
+                </div>
+            </div>
+
+            <!-- Contenedor que contiene el campo de texto y los botones -->
+            <div id="containerContent" style="display:none;">
+                <div id="inputDiv">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica qué días estará disponible">
+                </div>
+
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-outline-primary" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
+                    <button class="btn btn-outline-primary" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
+                    <button class="btn btn-outline-primary" type="button" id="miercoles" onclick="toggleSelection('miercoles')">Miércoles</button>
+                    <button class="btn btn-outline-primary" type="button" id="jueves" onclick="toggleSelection('jueves')">Jueves</button>
+                    <button class="btn btn-outline-primary" type="button" id="viernes" onclick="toggleSelection('viernes')">Viernes</button>
+                    <button class="btn btn-outline-primary" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
+                    <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
+                </div>
+            </div>
         </div>
-        <div class="box-input">
-            <input name="numero de telefono" id="contacto" type="text" required>
-            <span data-placeholder="Numero de contacto"></span>
+
+        <!-- Contenedores para otras opciones -->
+        <div id="container2" class="mt-3 container" style="display:none;">
+            <h3>Contenido para la opción Two</h3>
+            <p>Este es el contenedor para la opción "Two". Aquí puedes agregar más contenido relacionado con esta opción.</p>
         </div>
-        <div class="box-input">
-          <input name="ZonaSucursal" id="ZonaSucursal" type="text" required>
-          <span data-placeholder="Sucursal o Zona"></span>
-      </div>
-      <div class="box-input">
-          <input name="NombreBoton" id="NombreBoton" type="text" required>
-          <span data-placeholder="Escribe el nombre del Boton"></span>
-      </div>
-      <div class="box-input">
-          <input name="Producto" id="Producto" type="text" required>
-          <span data-placeholder="Escribe el nombre del producto principal a vender"></span>
-      </div>
-      <div class="box-input">
-          <input name="Cantidad" id="CantidadProducto" type="text" required>
-          <span data-placeholder="Que cantidad de producto lleva el paquete"></span>
-      </div>
-      <div class="box-input">
-        <input name="precio" id="precio" type="text" required>
-        <span data-placeholder="Indica el precio del paquete"></span>
-    </div>
-    <div class="box-input">
-      <input name="extras" id="extras" type="text" required>
-      <span data-placeholder="Coloca los extras que lleva el paquete"></span>
-  </div>
-<!-- Checkbox 1 (Default) -->
-<div class="container">
-  <div class="mb-3">
-    <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleInput()">
-    <label class="form-check-label" for="flexCheckSi">
-      Sí
-    </label>
-  </div>
-</div>
 
-
- <!-- Contenedor que contiene el campo de texto y los botones -->
- <div id="containerContent" style="display:none;">
-  <div id="inputDiv">
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica que días estará disponible">
-  </div>
-
-  <div class="d-grid gap-2 d-md-block">
-    <button class="btn btn-outline-primary" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
-    <button class="btn btn-outline-primary" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
-    <button class="btn btn-outline-primary" type="button" id="miercoles" onclick="toggleSelection('miercoles')">Miércoles</button>
-    <button class="btn btn-outline-primary" type="button" id="jueves" onclick="toggleSelection('jueves')">Jueves</button>
-    <button class="btn btn-outline-primary" type="button" id="viernes" onclick="toggleSelection('viernes')">Viernes</button>
-    <button class="btn btn-outline-primary" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
-    <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
-  </div>
-</div>
-</div>
-
-
-<!-- Checkbox 2 (Checked) -->
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-  <label class="form-check-label" for="flexCheckChecked">
-    Input Visible
-  </label>
-</div>
-
-<!-- Otro contenedor de input (puedes agregar más según sea necesario) -->
-<div class="box-input" id="input-container-2" style="display: none;">
-  <input type="text" id="input-field-2" />
-  <span data-placeholder="Otro input"></span>
-</div>
-
-      </div>
-  
-      <div id="container2" class="mt-3 container" style="display:none;">
-        <h3>Contenido para la opción Two</h3>
-        <p>Este es el contenedor para la opción "Two". Aquí puedes agregar más contenido relacionado con esta opción.</p>
-      </div>
-  
-      <div id="container3" class="mt-3 container" style="display:none;">
-        <h3>Contenido para la opción Three</h3>
-        <p>Este es el contenedor para la opción "Three". Aquí puedes agregar más contenido relacionado con esta opción.</p>
-      </div>
+        <div id="container3" class="mt-3 container" style="display:none;">
+            <h3>Contenido para la opción Three</h3>
+            <p>Este es el contenedor para la opción "Three". Aquí puedes agregar más contenido relacionado con esta opción.</p>
+        </div>
     </div>
 
     <script>
-        // Obtener el select y los contenedores
+        // Función para mostrar el contenedor según el checkbox
+        function toggleContainer() {
+            var checkSi = document.getElementById('flexCheckSi');
+            var containerContent = document.getElementById('containerContent');
+            // Si el checkbox "Sí" está marcado, muestra el contenedor completo
+            if (checkSi.checked) {
+                containerContent.style.display = 'block'; // Muestra el contenedor
+            } else {
+                containerContent.style.display = 'none'; // Oculta el contenedor
+            }
+        }
+
+        // Función para alternar la selección de un botón de los días de la semana
+        function toggleSelection(day) {
+            var button = document.getElementById(day);
+            // Alternamos la clase del botón
+            if (button.classList.contains('btn-outline-primary')) {
+                button.classList.remove('btn-outline-primary');
+                button.classList.add('btn-primary');
+            } else {
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-outline-primary');
+            }
+        }
+
+        // Mostrar el contenedor adecuado según la opción seleccionada
         const select = document.getElementById("formSelect");
         const containers = {
-          1: document.getElementById("container1"),
-          2: document.getElementById("container2"),
-          3: document.getElementById("container3")
+            1: document.getElementById("container1"),
+            2: document.getElementById("container2"),
+            3: document.getElementById("container3")
         };
-    
-        // Función para mostrar el contenedor correspondiente
+
         select.addEventListener("change", function() {
-          // Ocultar todos los contenedores
-          Object.values(containers).forEach(container => {
-            container.style.display = "none";
-          });
-    
-          // Mostrar el contenedor correspondiente según la opción seleccionada
-          const valorSeleccionado = select.value;
-          if (valorSeleccionado !== "Open this select menu") {
-            containers[valorSeleccionado].style.display = "block";
-          }
+            const selectedValue = this.value;
+            Object.keys(containers).forEach(key => {
+                containers[key].style.display = (key === selectedValue) ? "block" : "none";
+            });
         });
-        // Seleccionamos los checkboxes y los contenedores del input
-//const checkbox1 = document.getElementById("flexCheckDefault");
-const checkbox2 = document.getElementById("flexCheckChecked");
-//const inputContainer1 = document.getElementById("input-container");
-const inputContainer2 = document.getElementById("input-container-2");
-
-// Función para mostrar u ocultar el input según el estado del checkbox
-//checkbox1.addEventListener("change", () => {
- // if (checkbox1.checked) {
- //   inputContainer1.style.display = "block"; // Muestra el primer input
- // } else {
- //   inputContainer1.style.display = "none"; // Oculta el primer input
- // }
-//});
-
-// Función para mostrar u ocultar el segundo input según el estado del checkbox
-checkbox2.addEventListener("change", () => {
-  if (checkbox2.checked) {
-    inputContainer2.style.display = "block"; // Muestra el segundo input
-  } else {
-    inputContainer2.style.display = "none"; // Oculta el segundo input
-  }
-});
-
-// Función para alternar la visibilidad del contenedor completo
-function toggleContainer() {
-    var checkSi = document.getElementById('flexCheckSi');
-    var containerContent = document.getElementById('containerContent');
-
-    // Si el checkbox "Sí" está marcado, muestra el contenedor completo
-    if (checkSi.checked) {
-      containerContent.style.display = 'block'; // Muestra el contenedor
-    } else {
-      // Si el checkbox no está marcado, oculta el contenedor completo
-      containerContent.style.display = 'none'; // Oculta el contenedor
-    }
-  }
-
-  // Función para alternar la selección de un botón (los días de la semana)
-  function toggleSelection(day) {
-    var button = document.getElementById(day);
-
-    // Alternamos la clase del botón para mostrar si está seleccionado o no
-    if (button.classList.contains('btn-outline-primary')) {
-      // Si no está seleccionado, lo seleccionamos
-      button.classList.remove('btn-outline-primary');
-      button.classList.add('btn-primary');
-    } else {
-      // Si está seleccionado, lo deseleccionamos
-      button.classList.remove('btn-primary');
-      button.classList.add('btn-outline-primary');
-    }
-  }
-      </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-<!--
-    <form id="formulario" class="formulario">
-        <h1>Envío de formulario por WhatsApp</h1>
-        <div class="box-input">
-            <input name="nombre de quien solicita" id="solicitante" type="text" required>
-            <span data-placeholder="Escriba su Nombre"></span>
-        </div>
-        <div class="box-input">
-            <input name="numero de telefono" id="contacto" type="text" required>
-            <span data-placeholder="Numero de contacto"></span>
-        </div>
-        <div class="box-input">
-            <input name="ZonaSucursal" id="ZonaSucursal" type="text" required>
-            <span data-placeholder="Sucursal o Zona"></span>
-        </div>
-        <div class="box-input">
-            <input name="NombreBoton" id="NombreBoton" type="text" required>
-            <span data-placeholder="Escribe el nombre del Boton"></span>
-        </div>
-        <div class="box-input">
-            <input name="Producto" id="Producto" type="text" required>
-            <span data-placeholder="Escribe el nombre del producto principal a vender"></span>
-        </div>
-        <div class="box-input">
-            <input name="Cantidad" id="CantidadProducto" type="text" required>
-            <span data-placeholder="Que cantidad de producto lleva el paquete"></span>
-        </div>
-        <div class="box-input">
-            <input name="NombreBoton" id="NombreBoton" type="text" required>
-            <span data-placeholder="Escribe el nombre del Boton"></span>
-        </div>
-        <div class="box-input">
-            <input name="email" id="email" type="email" required>
-            <span data-placeholder="Escriba su Correo Electrónico"></span>
-        </div>
-        <button id="submit" type="submit" class="boton"><i class="fab fa-whatsapp"></i> Enviar WhatsApp</button>
-    </form>
-      
--->
-
-     <script type="text/javascript">
-          $(".box-input input").on("focus", function(){
-              $(this).addClass("focus");
-          });
-
-          $(".box-input input").on("blur", function(){
-              if($(this).val() == ""){
-                  $(this).removeClass("focus");
-              }
-          });
-
     </script>
 
-
-  <!--  <script src="https://kit.fontawesome.com/a076d05399.js"></script>  -->
-    <!-- <script src="whatsapp.js"></script> -->
 </body>
 </html>
