@@ -70,7 +70,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleContainer()">
                     <label class="form-check-label" for="flexCheckSi">
-                        No
+                        Sí
                     </label>
                 </div>
             </div>
@@ -78,9 +78,9 @@
             <!-- Contenedor que contiene el campo de texto y los botones -->
             <div id="containerContent" style="display:none;">
                 <div id="inputDiv">
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica fecha inicio/fecha fin">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica qué días estará disponible">
                 </div>
-                <p class="fst-normal">Selecciona los dias</p>
+
                 <div class="d-grid gap-2 d-md-block">
                     <button class="btn btn-outline-primary" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
                     <button class="btn btn-outline-primary" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
@@ -91,6 +91,12 @@
                     <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
                 </div>
             </div>
+        </div>
+
+        <!-- Botones Limpiar y Enviar -->
+        <div class="mt-4">
+            <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
+            <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
         </div>
 
         <!-- Contenedores para otras opciones -->
@@ -129,6 +135,52 @@
                 button.classList.remove('btn-primary');
                 button.classList.add('btn-outline-primary');
             }
+        }
+
+        // Limpiar el formulario
+        function limpiarFormulario() {
+            // Limpiar los campos de texto
+            document.querySelectorAll('input').forEach(function(input) {
+                input.value = '';
+            });
+            // Limpiar los botones de días
+            var buttons = document.querySelectorAll('.btn-outline-primary');
+            buttons.forEach(function(button) {
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-outline-primary');
+            });
+            // Limpiar el checkbox
+            document.getElementById('flexCheckSi').checked = false;
+            // Ocultar el contenedor de días
+            document.getElementById('containerContent').style.display = 'none';
+        }
+
+        // Enviar el formulario a tu correo con Formspree
+        function enviarFormulario() {
+            var formData = new FormData();
+
+            // Obtener los valores del formulario
+            formData.append("solicita", document.getElementById("solicita").value);
+            formData.append("contacto", document.getElementById("contacto").value);
+            formData.append("ZonaSucursal", document.getElementById("ZonaSucursal").value);
+            formData.append("NombreBoton", document.getElementById("NombreBoton").value);
+            formData.append("Producto", document.getElementById("Producto").value);
+            formData.append("CantidadProducto", document.getElementById("CantidadProducto").value);
+            formData.append("precio", document.getElementById("precio").value);
+            formData.append("extras", document.getElementById("extras").value);
+            
+            // Enviar los datos mediante una solicitud POST a Formspree
+            fetch('https://formspree.io/f/mjkvdndj', {  
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Formulario enviado con éxito');
+            })
+            .catch(error => {
+                console.error('Error al enviar el formulario:', error);
+            });
         }
 
         // Mostrar el contenedor adecuado según la opción seleccionada
