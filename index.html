@@ -74,12 +74,6 @@
       Sí
     </label>
   </div>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckNo" onclick="toggleInput()">
-    <label class="form-check-label" for="flexCheckNo">
-      No
-    </label>
-  </div>
 </div>
 
 
@@ -163,7 +157,7 @@ checkbox2.addEventListener("change", () => {
 
 function toggleInput() {
     var checkSi = document.getElementById('flexCheckSi');
-    var checkNo = document.getElementById('flexCheckNo');
+    //var checkNo = document.getElementById('flexCheckNo');
     var inputDiv = document.getElementById('inputDiv');
 
     // Si "Sí" está marcado
@@ -171,16 +165,7 @@ function toggleInput() {
       inputDiv.style.display = 'block'; // Muestra el campo de entrada
       checkNo.checked = false; // Desmarca "No"
     }
-    // Si "No" está marcado
-    else if (checkNo.checked) {
-      inputDiv.style.display = 'none'; // Oculta el campo de entrada
-      checkSi.checked = false; // Desmarca "Sí"
-    } else {
-      // Si ninguno está marcado, ocultar el campo de entrada
-      inputDiv.style.display = 'none';
-    }
-  }
-
+  
   // Al cargar la página, comprobar el estado de los checkboxes
   window.onload = function() {
     toggleInput(); // Ejecuta la función para manejar el estado al cargar
