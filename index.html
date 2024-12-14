@@ -166,20 +166,24 @@ function toggleInput() {
     var checkNo = document.getElementById('flexCheckNo');
     var inputDiv = document.getElementById('inputDiv');
 
-    // Si "Sí" está marcado, muestra el input y desmarca "No"
-    if (checkSi.checked) {
+     // Si el checkbox "Sí" está marcado, muestra el input y desmarca "No"
+     if (checkbox === 'si' && checkSi.checked) {
       inputDiv.style.display = 'block';
       checkNo.checked = false; // Desmarca "No"
     }
-    // Si "No" está marcado, oculta el input y desmarca "Sí"
-    else if (checkNo.checked) {
+    // Si el checkbox "No" está marcado, oculta el input y desmarca "Sí"
+    else if (checkbox === 'no' && checkNo.checked) {
       inputDiv.style.display = 'none';
       checkSi.checked = false; // Desmarca "Sí"
-    } else {
-      // Si ninguno está seleccionado, oculta el input
+    }
+    // Si ninguno está marcado, oculta el input
+    else if (!checkSi.checked && !checkNo.checked) {
       inputDiv.style.display = 'none';
     }
   }
+
+  // Llamamos la función al inicio en caso de que ya haya un checkbox seleccionado
+  window.onload = toggleInput('si');
       </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
