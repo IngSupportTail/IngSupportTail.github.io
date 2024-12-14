@@ -157,19 +157,16 @@ checkbox2.addEventListener("change", () => {
 
 function toggleInput() {
     var checkSi = document.getElementById('flexCheckSi');
-    //var checkNo = document.getElementById('flexCheckNo');
     var inputDiv = document.getElementById('inputDiv');
 
-    // Si "Sí" está marcado
+    // Si "Sí" está marcado, muestra el campo de entrada
     if (checkSi.checked) {
-      inputDiv.style.display = 'block'; // Muestra el campo de entrada
-      checkNo.checked = false; // Desmarca "No"
+      inputDiv.style.display = 'block';
+    } else {
+      // Si "Sí" no está marcado, oculta el campo de entrada
+      inputDiv.style.display = 'none';
     }
-  
-  // Al cargar la página, comprobar el estado de los checkboxes
-  window.onload = function() {
-    toggleInput(); // Ejecuta la función para manejar el estado al cargar
-  };
+  }
       </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
