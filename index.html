@@ -78,7 +78,7 @@
 
 
 <!-- Input que se muestra solo si "Sí" está seleccionado -->
-<div class="container">
+<div id="containerContent" style="display:none;">
 <div id="inputDiv" style="display:none;">
   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica que dias estará disponible">
 </div>
@@ -166,16 +166,16 @@ checkbox2.addEventListener("change", () => {
   }
 });
 
-function toggleInput() {
+function toggleContainer() {
     var checkSi = document.getElementById('flexCheckSi');
-    var inputDiv = document.getElementById('inputDiv');
+    var containerContent = document.getElementById('containerContent');
 
-    // Si "Sí" está marcado, muestra el campo de entrada
+    // Si el checkbox "Sí" está marcado, muestra el contenedor completo
     if (checkSi.checked) {
-      inputDiv.style.display = 'block';
+      containerContent.style.display = 'block';
     } else {
-      // Si "Sí" no está marcado, oculta el campo de entrada
-      inputDiv.style.display = 'none';
+      // Si el checkbox no está marcado, oculta el contenedor completo
+      containerContent.style.display = 'none';
     }
   }
 
