@@ -95,6 +95,7 @@
 </div>
 </div>
 
+
 <!-- Checkbox 2 (Checked) -->
 <div class="form-check">
   <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -168,21 +169,21 @@ checkbox2.addEventListener("change", () => {
   }
 });
 
-// Función para alternar la visibilidad del contenedor
+// Función para alternar la visibilidad del contenedor completo
 function toggleContainer() {
     var checkSi = document.getElementById('flexCheckSi');
     var containerContent = document.getElementById('containerContent');
 
     // Si el checkbox "Sí" está marcado, muestra el contenedor completo
     if (checkSi.checked) {
-      containerContent.style.display = 'block';
+      containerContent.style.display = 'block'; // Muestra el contenedor
     } else {
       // Si el checkbox no está marcado, oculta el contenedor completo
-      containerContent.style.display = 'none';
+      containerContent.style.display = 'none'; // Oculta el contenedor
     }
   }
 
-  // Función para alternar la selección de un botón
+  // Función para alternar la selección de un botón (los días de la semana)
   function toggleSelection(day) {
     var button = document.getElementById(day);
 
