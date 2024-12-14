@@ -67,27 +67,25 @@
 <div class="container">
   <div class="mb-3">
     <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-    <label class="form-check-label" for="flexCheckDefault">
-      Si
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleInput()">
+    <label class="form-check-label" for="flexCheckSi">
+      Sí
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkboxNo" value="" id="flexCheckDefault">
-    <label class="form-check-label" for="flexCheckDefault">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckNo" onclick="toggleInput()">
+    <label class="form-check-label" for="flexCheckNo">
       No
     </label>
   </div>
 </div>
 
 
-<!-- Contenedor del input que se muestra u oculta -->
-<div class="box-input" id="input-container" style="display: none;">
-  <input type="text" id="input-field" />
-  <span data-placeholder="Escribe aquí"></span>
+<!-- Input que se muestra solo si "Sí" está seleccionado -->
+<div id="inputDiv" style="display:none;">
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Especifica detalles">
 </div>
 
 <!-- Checkbox 2 (Checked) -->
@@ -162,6 +160,26 @@ checkbox2.addEventListener("change", () => {
     inputContainer2.style.display = "none"; // Oculta el segundo input
   }
 });
+
+function toggleInput() {
+    var checkSi = document.getElementById('flexCheckSi');
+    var checkNo = document.getElementById('flexCheckNo');
+    var inputDiv = document.getElementById('inputDiv');
+
+    // Si el checkbox "Sí" está marcado, muestra el input
+    if (checkSi.checked) {
+      inputDiv.style.display = 'block';
+      checkNo.checked = false; // Desmarca el checkbox "No"
+    } else {
+      inputDiv.style.display = 'none';
+    }
+
+    // Si el checkbox "No" está marcado, oculta el input
+    if (checkNo.checked) {
+      inputDiv.style.display = 'none';
+      checkSi.checked = false; // Desmarca el checkbox "Sí"
+    }
+  }
       </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
