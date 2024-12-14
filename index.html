@@ -78,8 +78,19 @@
 
 
 <!-- Input que se muestra solo si "Sí" está seleccionado -->
+<div class="container">
 <div id="inputDiv" style="display:none;">
   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica que dias estará disponible">
+</div>
+<div class="d-grid gap-2 d-md-block">
+  <button class="btn btn-outline-primary" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
+  <button class="btn btn-outline-primary" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
+  <button class="btn btn-outline-primary" type="button" id="miercoles" onclick="toggleSelection('miercoles')">Miércoles</button>
+  <button class="btn btn-outline-primary" type="button" id="jueves" onclick="toggleSelection('jueves')">Jueves</button>
+  <button class="btn btn-outline-primary" type="button" id="viernes" onclick="toggleSelection('viernes')">Viernes</button>
+  <button class="btn btn-outline-primary" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
+  <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
+</div>
 </div>
 
 <!-- Checkbox 2 (Checked) -->
@@ -165,6 +176,21 @@ function toggleInput() {
     } else {
       // Si "Sí" no está marcado, oculta el campo de entrada
       inputDiv.style.display = 'none';
+    }
+  }
+
+  function toggleSelection(day) {
+    var button = document.getElementById(day);
+
+    // Alternamos la clase del botón para mostrar si está seleccionado o no
+    if (button.classList.contains('btn-outline-primary')) {
+      // Si no está seleccionado, lo seleccionamos
+      button.classList.remove('btn-outline-primary');
+      button.classList.add('btn-primary');
+    } else {
+      // Si está seleccionado, lo deseleccionamos
+      button.classList.remove('btn-primary');
+      button.classList.add('btn-outline-primary');
     }
   }
       </script>
