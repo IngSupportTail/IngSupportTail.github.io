@@ -166,26 +166,24 @@ function toggleInput() {
     var checkNo = document.getElementById('flexCheckNo');
     var inputDiv = document.getElementById('inputDiv');
 
-     // Si el checkbox "Sí" es seleccionado
-    if (checkbox === 'si') {
-      // Mostrar el campo de entrada y desmarcar "No"
-      inputDiv.style.display = 'block';
-      checkNo.checked = false; // Desmarcar "No"
+    // Si "Sí" está marcado
+    if (checkSi.checked) {
+      inputDiv.style.display = 'block'; // Muestra el campo de entrada
+      checkNo.checked = false; // Desmarca "No"
     }
-    // Si el checkbox "No" es seleccionado
-    else if (checkbox === 'no') {
-      // Ocultar el campo de entrada y desmarcar "Sí"
+    // Si "No" está marcado
+    else if (checkNo.checked) {
+      inputDiv.style.display = 'none'; // Oculta el campo de entrada
+      checkSi.checked = false; // Desmarca "Sí"
+    } else {
+      // Si ninguno está marcado, ocultar el campo de entrada
       inputDiv.style.display = 'none';
-      checkSi.checked = false; // Desmarcar "Sí"
     }
   }
 
-  // Llamar a la función para verificar el estado de los checkboxes al cargar la página
+  // Al cargar la página, comprobar el estado de los checkboxes
   window.onload = function() {
-    // Si "Sí" está marcado por defecto, muestra el campo de entrada
-    if (document.getElementById('flexCheckSi').checked) {
-      document.getElementById('inputDiv').style.display = 'block';
-    }
+    toggleInput(); // Ejecuta la función para manejar el estado al cargar
   };
       </script>
 
