@@ -85,7 +85,7 @@
 
 <!-- Input que se muestra solo si "Sí" está seleccionado -->
 <div id="inputDiv" style="display:none;">
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Especifica detalles">
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica que dias estará disponible">
 </div>
 
 <!-- Checkbox 2 (Checked) -->
@@ -138,19 +138,19 @@
           }
         });
         // Seleccionamos los checkboxes y los contenedores del input
-const checkbox1 = document.getElementById("flexCheckDefault");
+//const checkbox1 = document.getElementById("flexCheckDefault");
 const checkbox2 = document.getElementById("flexCheckChecked");
-const inputContainer1 = document.getElementById("input-container");
+//const inputContainer1 = document.getElementById("input-container");
 const inputContainer2 = document.getElementById("input-container-2");
 
 // Función para mostrar u ocultar el input según el estado del checkbox
-checkbox1.addEventListener("change", () => {
-  if (checkbox1.checked) {
-    inputContainer1.style.display = "block"; // Muestra el primer input
-  } else {
-    inputContainer1.style.display = "none"; // Oculta el primer input
-  }
-});
+//checkbox1.addEventListener("change", () => {
+ // if (checkbox1.checked) {
+ //   inputContainer1.style.display = "block"; // Muestra el primer input
+ // } else {
+ //   inputContainer1.style.display = "none"; // Oculta el primer input
+ // }
+//});
 
 // Función para mostrar u ocultar el segundo input según el estado del checkbox
 checkbox2.addEventListener("change", () => {
