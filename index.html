@@ -77,19 +77,21 @@
 </div>
 
 
-<!-- Input que se muestra solo si "Sí" está seleccionado -->
-<div id="containerContent" style="display:none;">
-<div id="inputDiv" style="display:none;">
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica que dias estará disponible">
-</div>
-<div class="d-grid gap-2 d-md-block">
-  <button class="btn btn-outline-primary" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
-  <button class="btn btn-outline-primary" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
-  <button class="btn btn-outline-primary" type="button" id="miercoles" onclick="toggleSelection('miercoles')">Miércoles</button>
-  <button class="btn btn-outline-primary" type="button" id="jueves" onclick="toggleSelection('jueves')">Jueves</button>
-  <button class="btn btn-outline-primary" type="button" id="viernes" onclick="toggleSelection('viernes')">Viernes</button>
-  <button class="btn btn-outline-primary" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
-  <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
+ <!-- Contenedor que contiene el campo de texto y los botones -->
+ <div id="containerContent" style="display:none;">
+  <div id="inputDiv">
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica que días estará disponible">
+  </div>
+
+  <div class="d-grid gap-2 d-md-block">
+    <button class="btn btn-outline-primary" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
+    <button class="btn btn-outline-primary" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
+    <button class="btn btn-outline-primary" type="button" id="miercoles" onclick="toggleSelection('miercoles')">Miércoles</button>
+    <button class="btn btn-outline-primary" type="button" id="jueves" onclick="toggleSelection('jueves')">Jueves</button>
+    <button class="btn btn-outline-primary" type="button" id="viernes" onclick="toggleSelection('viernes')">Viernes</button>
+    <button class="btn btn-outline-primary" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
+    <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
+  </div>
 </div>
 </div>
 
