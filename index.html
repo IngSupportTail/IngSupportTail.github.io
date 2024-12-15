@@ -91,13 +91,14 @@
                     <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
                 </div>
             </div>
-        </div>
-
-        <!-- Botones Limpiar y Enviar -->
-        <div class="mt-4">
+             <!-- Botones Limpiar y Enviar -->
+         <div class="mt-4">
             <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
             <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
         </div>
+        </div>
+
+       
 
         <!-- Contenedores para otras opciones -->
         <div id="container2" class="mt-3 container" style="display:none;">
@@ -197,6 +198,17 @@
                 containers[key].style.display = (key === selectedValue) ? "block" : "none";
             });
         });
+
+        type="text/javascript">
+          $(".box-input input").on("focus", function(){
+              $(this).addClass("focus");
+          });
+
+          $(".box-input input").on("blur", function(){
+              if($(this).val() == ""){
+                  $(this).removeClass("focus");
+              }
+          });
     </script>
 
 </body>
