@@ -17,6 +17,15 @@
         <img src="/Images/pechugon-header.png" class="img-thumbnail" alt="header">
     </div>
 
+    <div id="mensajeExito" class="alert alert-success d-flex align-items-center" role="alert" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1050; width: 80%; max-width: 600px;">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+          <use xlink:href="#check-circle-fill"/>
+        </svg>
+        <div>
+          Solicitud enviada con éxito.
+        </div>
+      </div>
+
     <div class="container mt-5">
         <label for="formSelect" class="form-label">Selecciona el Formulario</label>
         <select class="form-select" id="formSelect" aria-label="Selecciona el Formulario">
@@ -230,58 +239,68 @@
 
         // Enviar el formulario a tu correo con Formspree
            function enviarFormulario() {
-            var formData = new FormData();
+    var formData = new FormData();
 
-             // Obtener los valores del formulario
-                 formData.append("solicita", document.getElementById("solicita").value);
-                 formData.append("contacto", document.getElementById("contacto").value);
-                 formData.append("ZonaSucursal", document.getElementById("Zona/Sucursal").value);
-                 formData.append("NombreBoton", document.getElementById("Nombre del Boton/Paquete").value);
-                 formData.append("Producto", document.getElementById("Producto principal").value);
-                 formData.append("CantidadProducto", document.getElementById("Cantidad de Producto").value);
-                 formData.append("precio", document.getElementById("precio").value);
-                 formData.append("extras", document.getElementById("extras").value);
-                 formData.append("categoria", document.getElementById("categoria").value);
+    // Obtener los valores del formulario
+    formData.append("solicita", document.getElementById("solicita").value);
+    formData.append("contacto", document.getElementById("contacto").value);
+    formData.append("ZonaSucursal", document.getElementById("Zona/Sucursal").value);
+    formData.append("NombreBoton", document.getElementById("Nombre del Boton/Paquete").value);
+    formData.append("Producto", document.getElementById("Producto principal").value);
+    formData.append("CantidadProducto", document.getElementById("Cantidad de Producto").value);
+    formData.append("precio", document.getElementById("precio").value);
+    formData.append("extras", document.getElementById("extras").value);
+    formData.append("categoria", document.getElementById("categoria").value);
 
-            // Obtener los días seleccionados
-                var diasSeleccionados = [];
-                var dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
-                 dias.forEach(function(dia) {
-                  var button = document.getElementById(dia);
-                 if (button.classList.contains('btn-primary')) {
-                      diasSeleccionados.push(dia);
-                     }
-                });
+    // Obtener los días seleccionados
+    var diasSeleccionados = [];
+    var dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+    dias.forEach(function(dia) {
+        var button = document.getElementById(dia);
+        if (button.classList.contains('btn-primary')) {
+            diasSeleccionados.push(dia);
+        }
+    });
 
-            // Agregar los días seleccionados al formulario
-                formData.append("diasDisponibles", diasSeleccionados.join(", "));
+    // Agregar los días seleccionados al formulario
+    formData.append("diasDisponibles", diasSeleccionados.join(", "));
 
-            // Obtener las plataformas seleccionadas
-                var plataformasSeleccionadas = [];
-                var plataformas = ["Uber", "Didi", "Rappi", "Deli"];
-                plataformas.forEach(function(plataforma) {
-                var button = document.getElementById(plataforma);
-                if (button.classList.contains('btn-primary')) {
-                      plataformasSeleccionadas.push(plataforma);
-                  }
-                   });
+    // Obtener las plataformas seleccionadas
+    var plataformasSeleccionadas = [];
+    var plataformas = ["Uber", "Didi", "Rappi", "Deli"];
+    plataformas.forEach(function(plataforma) {
+        var button = document.getElementById(plataforma);
+        if (button.classList.contains('btn-primary')) {
+            plataformasSeleccionadas.push(plataforma);
+        }
+    });
 
-             // Agregar las plataformas seleccionadas al formulario
-                formData.append("plataformasDisponibles", plataformasSeleccionadas.join(", "));
+    // Agregar las plataformas seleccionadas al formulario
+    formData.append("plataformasDisponibles", plataformasSeleccionadas.join(", "));
 
-            // Enviar los datos mediante una solicitud POST a Formspree
-                fetch('https://formspree.io/f/mjkvdndj', {  
-                     method: 'POST',
-                        body: formData
-                    })
-                 .then(response => response.json())
-                 .then(data => {
-                   alert('Formulario enviado con éxito');
-                 })
-                 .catch(error => {
-                 console.error('Error al enviar el formulario:', error);
-                });
-                }
+    // Enviar los datos mediante una solicitud POST a Formspree
+    fetch('https://formspree.io/f/mjkvdndj', {  
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Mostrar el mensaje de éxito flotante
+        var mensajeExito = document.getElementById('mensajeExito');
+        mensajeExito.style.display = 'block'; // Mostrar el mensaje
+
+        // Limpiar el formulario
+        limpiarFormulario();
+
+        // Ocultar el mensaje después de 3 segundos
+        setTimeout(function() {
+            mensajeExito.style.display = 'none';
+        }, 3000);
+    })
+    .catch(error => {
+        console.error('Error al enviar el formulario:', error);
+    });
+}
         // Mostrar el contenedor adecuado según la opción seleccionada
         const select = document.getElementById("formSelect");
         const containers = {
