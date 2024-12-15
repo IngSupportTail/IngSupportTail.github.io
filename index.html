@@ -93,7 +93,7 @@
             <!-- Contenedor que contiene el campo de texto y los botones -->
             <div id="containerContent" style="display:none;">
                 <div id="inputDiv">
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica qué días estará disponible">
+                    <input type="text" class="form-control" id="fechadisponible" placeholder="Indica qué fechas estará disponible">
                 </div>
 
                 <div class="d-grid gap-2 d-md-block">
@@ -123,7 +123,7 @@
         <!-- Contenedor que contiene el campo de texto y los botones plataforma -->
         <div id="containerContent1" style="display:none;">
             <div id="inputDiv">
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica el precio para platafomas">
+                <input type="text" class="form-control" id="precioplataforma" placeholder="Indica el precio para platafomas">
             </div>
 
             <div class="d-grid gap-2 d-md-block">
@@ -263,6 +263,12 @@
     // Agregar los días seleccionados al formulario
     formData.append("diasDisponibles", diasSeleccionados.join(", "));
 
+    //campo fechas disponibles
+    var FechaDisponible = document.getElementById('fechadisponible').value;
+
+    //Formulario
+    formData.append("fechas disponibles", FechaDisponible);
+
     // Obtener las plataformas seleccionadas
     var plataformasSeleccionadas = [];
     var plataformas = ["Uber", "Didi", "Rappi", "Deli"];
@@ -275,6 +281,12 @@
 
     // Agregar las plataformas seleccionadas al formulario
     formData.append("plataformasDisponibles", plataformasSeleccionadas.join(", "));
+
+    //campo precio plataformas
+    var PrecioPlataforma = document.getElementById('precioplataforma').value;
+
+    //Formulario
+    formData.append("precio plataformas", PrecioPlataforma);
 
     // Enviar los datos mediante una solicitud POST a Formspree
     fetch('https://formspree.io/f/mjkvdndj', {  
