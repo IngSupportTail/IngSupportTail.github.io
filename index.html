@@ -35,27 +35,27 @@
             </div>
             <div class="box-input">
                 <input name="numero de telefono" id="contacto" type="text" required>
-                <span data-placeholder="Número de contacto"></span>
+                <span data-placeholder="Número de telefono"></span>
             </div>
             <div class="box-input">
-                <input name="ZonaSucursal" id="ZonaSucursal" type="text" required>
+                <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
                 <span data-placeholder="Sucursal o Zona"></span>
             </div>
             <div class="box-input">
-                <input name="NombreBoton" id="NombreBoton" type="text" required>
-                <span data-placeholder="Escribe el nombre del Boton"></span>
+                <input name="NombreBoton" id="Nombre del Boton/Paquete" type="text" required>
+                <span data-placeholder="Escribe el nombre del Boton ó paquete"></span>
             </div>
             <div class="box-input">
-                <input name="Producto" id="Producto" type="text" required>
+                <input name="Producto" id="Producto principal" type="text" required>
                 <span data-placeholder="Escribe el nombre del producto principal a vender"></span>
             </div>
             <div class="box-input">
-                <input name="Cantidad" id="CantidadProducto" type="text" required>
+                <input name="Cantidad" id="Cantidad de Producto" type="text" required>
                 <span data-placeholder="Que cantidad de producto lleva el paquete"></span>
             </div>
             <div class="box-input">
                 <input name="precio" id="precio" type="text" required>
-                <span data-placeholder="Indica el precio del paquete"></span>
+                <span data-placeholder="Indica el precio que deberá llevar"></span>
             </div>
             <div class="box-input">
                 <input name="extras" id="extras" type="text" required>
@@ -70,7 +70,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleContainer()">
                     <label class="form-check-label" for="flexCheckSi">
-                        Sí
+                        No
                     </label>
                 </div>
             </div>
@@ -91,6 +91,34 @@
                     <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
                 </div>
             </div>
+
+        <!-- Checkbox para "plataforma" -->
+        <div class="container">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckplataforma" onclick="toggleContainer()">
+                <label class="form-check-label" for="flexCheckplataforma">
+                    Si
+                </label>
+            </div>
+        </div>
+
+        <!-- Contenedor que contiene el campo de texto y los botones plataforma -->
+        <div id="containerContent1" style="display:none;">
+            <div id="inputDiv">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Indica el precio para platafomas">
+            </div>
+
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-outline-primary" type="button" id="Uber" onclick="toggleSelection('Uber')">Uber</button>
+                <button class="btn btn-outline-primary" type="button" id="Didi" onclick="toggleSelection('Didi')">Didi</button>
+                <button class="btn btn-outline-primary" type="button" id="Rappi" onclick="toggleSelection('Rappi')">Rappi</button>
+                <button class="btn btn-outline-primary" type="button" id="Deli" onclick="toggleSelection('Deli')">Deli</button>
+            </div>
+        </div>
+
              <!-- Botones Limpiar y Enviar -->
          <div class="mt-4">
             <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
@@ -135,6 +163,18 @@
             } else {
                 button.classList.remove('btn-primary');
                 button.classList.add('btn-outline-primary');
+            }
+        }
+
+            // Función para mostrar el contenedor plataforma
+            function toggleContainer() {
+            var checkplataforma = document.getElementById('flexCheckplataforma');
+            var containerContent1 = document.getElementById('containerContent1');
+            // Si el checkbox "Sí" está marcado, muestra el contenedor completo
+            if (checkplataforma.checked) {
+                containerContent1.style.display = 'block'; // Muestra el contenedor plataforma
+            } else {
+                containerContent1.style.display = 'none'; // Oculta el contenedor plataforma
             }
         }
 
