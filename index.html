@@ -145,7 +145,7 @@
         function toggleContainer() {
             var checkSi = document.getElementById('flexCheckSi');
             var containerContent = document.getElementById('containerContent');
-            // Si el checkbox "Sí" está marcado, muestra el contenedor completo
+            // Si el checkbox está marcado, muestra el contenedor completo
             if (checkSi.checked) {
                 containerContent.style.display = 'block'; // Muestra el contenedor
             } else {
@@ -170,7 +170,7 @@
             function toggleContainerplataforma() {
             var checkplataforma = document.getElementById('flexCheckplataforma');
             var containerContent1 = document.getElementById('containerContent1');
-            // Si el checkbox "Sí" está marcado, muestra el contenedor completo
+            // Si el checkbox está marcado, muestra el contenedor completo
             if (checkplataforma.checked) {
                 containerContent1.style.display = 'block'; // Muestra el contenedor plataforma
             } else {
@@ -190,10 +190,12 @@
                 button.classList.remove('btn-primary');
                 button.classList.add('btn-outline-primary');
             });
-            // Limpiar el checkbox
+            // Limpiar checkboxes
             document.getElementById('flexCheckSi').checked = false;
-            // Ocultar el contenedor de días
+            document.getElementById('flexCheckplataforma').checked = false; 
+            // Ocultar containers
             document.getElementById('containerContent').style.display = 'none';
+            document.getElementById('containerContent1').style.display = 'none';
         }
 
         // Enviar el formulario a tu correo con Formspree
