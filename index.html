@@ -230,6 +230,17 @@
         function enviarFormulario() {
             document.querySelector('form').submit();
         }
+
+        type="text/javascript">
+          $(".box-input input").on("focus", function(){
+              $(this).addClass("focus");
+          });
+
+          $(".box-input input").on("blur", function(){
+              if($(this).val() == ""){
+                  $(this).removeClass("focus");
+              }
+          });
     </script>
 </body>
 </html>
