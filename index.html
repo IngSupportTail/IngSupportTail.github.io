@@ -16,332 +16,167 @@
     <div class="container">
         <img src="/Images/pechugon-header.png" class="img-thumbnail" alt="header">
     </div>
-    <form
-     action="https://formspree.io/f/mjkvdndj"
-     method="POST"
-        >
-          <!-- Alerta de éxito (se muestra después de enviar el formulario) -->
-          <div id="alertaExito" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+    <form action="https://formspree.io/f/mjkvdndj" method="POST">
+        <div id="alertaExito" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
             <strong>¡Éxito!</strong> La solicitud fue enviada correctamente.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 
-    <div class="container mt-5">
-        <label for="formSelect" class="form-label">Selecciona tu Pechusolicitud</label>
-        <select class="form-select" id="formSelect" aria-label="Selecciona el Formulario">
-            <option selected>Click aqui</option>
-            <option value="1">Pechusolicitud Paquete/Boton nuevo</option>
-            <option value="2">Pechusolicitud para un nuevo usuario</option>
-            <option value="3">Proximamente!</option>
-        </select>
+        <div class="container mt-5">
+            <label for="formSelect" class="form-label">Selecciona tu Pechusolicitud</label>
+            <select class="form-select" id="formSelect" aria-label="Selecciona el Formulario">
+                <option selected>Click aqui</option>
+                <option value="1">Pechusolicitud Paquete/Boton nuevo</option>
+                <option value="2">Pechusolicitud para un nuevo usuario</option>
+                <option value="3">Proximamente!</option>
+            </select>
 
-        <!-- Contenedor para la opción 1 -->
-
-        <div id="container1" class="mt-3 container" style="display:none;">
-            <h3>Solicitud para un paquete/boton nuevo</h3>
-            <div class="box-input">
-                <input name="solicita" id="solicita" type="text" required>
-                <span data-placeholder="Escribe tu nombre"></span>
-            </div>
-            <div class="box-input">
-                <input name="Cargo" id="Cargo" type="text" required>
-                <span data-placeholder="Escribe tu cargo"></span>
-            </div>
-            <div class="box-input">
-                <input name="numero de telefono" id="contacto" type="text" required>
-                <span data-placeholder="Número de telefono"></span>
-            </div>
-            <div class="box-input">
-                <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
-                <span data-placeholder="Sucursal o Zona donde se requiere la solicitud"></span>
-            </div>
-            <div class="box-input">
-                <input name="NombreBoton" id="Nombre del Boton/Paquete" type="text" required>
-                <span data-placeholder="Escribe el nombre del Boton ó paquete"></span>
-            </div>
-            <div class="box-input">
-                <input name="Producto" id="Producto principal" type="text" required>
-                <span data-placeholder="Escribe el nombre del producto principal a vender"></span>
-            </div>
-            <div class="box-input">
-                <input name="Cantidad" id="Cantidad de Producto" type="text" required>
-                <span data-placeholder="¿Que cantidad de producto lleva el paquete 0.5,1,1.5,2?"></span>
-            </div>
-            <div class="box-input">
-                <input name="precio" id="precio" type="text" required>
-                <span data-placeholder="Indica el precio que deberá llevar"></span>
-            </div>
-            <div class="box-input">
-                <input name="extras" id="extras" type="text" required>
-                <span data-placeholder="Si es paquete coloca los extras que deberá llevar"></span>
-            </div>
-            <div class="box-input">
-                <input name="categoria" id="categoria" type="text" required>
-                <span data-placeholder="Indica la categoria del menú 'Basicos,Promoción,Varios,Paquetes,Complementos' "></span>
-            </div>
-
-            <!-- Checkbox para "El producto estará siempre disponible" -->
-            <div class="container">
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
+            <!-- Contenedor para la opción 1 -->
+            <div id="container1" class="mt-3 container" style="display:none;">
+                <h3>Solicitud para un paquete/boton nuevo</h3>
+                <!-- Los campos del formulario no se han cambiado -->
+                <div class="box-input">
+                    <input name="solicita" id="solicita" type="text" required>
+                    <span data-placeholder="Escribe tu nombre"></span>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleContainer()">
-                    <label class="form-check-label" for="flexCheckSi">
-                        No
-                    </label>
+                <div class="box-input">
+                    <input name="Cargo" id="Cargo" type="text" required>
+                    <span data-placeholder="Escribe tu cargo"></span>
                 </div>
-            </div>
-
-            <!-- Contenedor que contiene el campo de texto y los botones -->
-            <div id="containerContent" style="display:none;">
-                <div id="inputDiv">
-                    <input type="text" class="form-control" id="fechadisponible" placeholder="Indica qué fechas estará disponible">
+                <div class="box-input">
+                    <input name="numero de telefono" id="contacto" type="text" required>
+                    <span data-placeholder="Número de telefono"></span>
+                </div>
+                <div class="box-input">
+                    <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
+                    <span data-placeholder="Sucursal o Zona donde se requiere la solicitud"></span>
+                </div>
+                <div class="box-input">
+                    <input name="NombreBoton" id="Nombre del Boton/Paquete" type="text" required>
+                    <span data-placeholder="Escribe el nombre del Boton ó paquete"></span>
+                </div>
+                <div class="box-input">
+                    <input name="Producto" id="Producto principal" type="text" required>
+                    <span data-placeholder="Escribe el nombre del producto principal a vender"></span>
+                </div>
+                <div class="box-input">
+                    <input name="Cantidad" id="Cantidad de Producto" type="text" required>
+                    <span data-placeholder="¿Que cantidad de producto lleva el paquete 0.5,1,1.5,2?"></span>
+                </div>
+                <div class="box-input">
+                    <input name="precio" id="precio" type="text" required>
+                    <span data-placeholder="Indica el precio que deberá llevar"></span>
+                </div>
+                <div class="box-input">
+                    <input name="extras" id="extras" type="text" required>
+                    <span data-placeholder="Si es paquete coloca los extras que deberá llevar"></span>
+                </div>
+                <div class="box-input">
+                    <input name="categoria" id="categoria" type="text" required>
+                    <span data-placeholder="Indica la categoria del menú 'Basicos,Promoción,Varios,Paquetes,Complementos' "></span>
                 </div>
 
-                <div class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-outline-primary" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
-                    <button class="btn btn-outline-primary" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
-                    <button class="btn btn-outline-primary" type="button" id="miercoles" onclick="toggleSelection('miercoles')">Miércoles</button>
-                    <button class="btn btn-outline-primary" type="button" id="jueves" onclick="toggleSelection('jueves')">Jueves</button>
-                    <button class="btn btn-outline-primary" type="button" id="viernes" onclick="toggleSelection('viernes')">Viernes</button>
-                    <button class="btn btn-outline-primary" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
-                    <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
-                </div>
-            </div>
-
-        <!-- Checkbox para "plataforma" -->
-        <div class="container">
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">¿El producto estará disponible en plataformas?</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckplataforma" onclick="toggleContainerplataforma()">
-                <label class="form-check-label" for="flexCheckplataforma">
-                    Si
-                </label>
-            </div>
-        </div>
-
-        <!-- Contenedor que contiene el campo de texto y los botones plataforma -->
-        <div id="containerContent1" style="display:none;">
-            <div id="inputDiv">
-                <input type="text" class="form-control" id="precioplataforma" placeholder="Indica el precio para platafomas">
-            </div>
-
-            <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-outline-primary" type="button" id="Uber" onclick="toggleSelection('Uber')">Uber</button>
-                <button class="btn btn-outline-primary" type="button" id="Didi" onclick="toggleSelection('Didi')">Didi</button>
-                <button class="btn btn-outline-primary" type="button" id="Rappi" onclick="toggleSelection('Rappi')">Rappi</button>
-                <button class="btn btn-outline-primary" type="button" id="Deli" onclick="toggleSelection('Deli')">Deli</button>
-            </div>
-        </div>
-
-             <!-- Botones Limpiar y Enviar -->
-         <div class="mt-4">
-            <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
-            <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
-        </div>
-        </div>
-
-  
-
-        <!-- Contenedores para otras opciones -->
-        <div id="container2" class="mt-3 container" style="display:none;">
-            <h3>Solicitud para creacion de nuevo usuario</h3>
-            <div class="box-input">
-                <input name="solicita" id="solicita" type="text" required>
-                <span data-placeholder="Escribe tu nombre"></span>
-            </div>
-            <div class="box-input">
-                <input name="Cargo" id="Cargo" type="text" required>
-                <span data-placeholder="Escribe tu cargo"></span>
-            </div>
-            <div class="box-input">
-                <input name="numero de telefono" id="contacto" type="text" required>
-                <span data-placeholder="Número de telefono"></span>
-            </div>
-            <div class="box-input">
-                <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
-                <span data-placeholder="Sucursal o Zona donde se requiere la solicitud"></span>
-            </div>
-            
-                     <!-- Botones Limpiar y Enviar -->
-                    <div class="mt-4">
-                     <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
-                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
+                <!-- Checkbox para "El producto estará siempre disponible" -->
+                <div class="container">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
                     </div>
-         </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleContainer()">
+                        <label class="form-check-label" for="flexCheckSi">
+                            No
+                        </label>
+                    </div>
+                </div>
 
+                <!-- Contenedor que contiene el campo de texto y los botones -->
+                <div id="containerContent" style="display:none;">
+                    <div id="inputDiv">
+                        <input type="text" class="form-control" id="fechadisponible" placeholder="Indica qué fechas estará disponible">
+                    </div>
 
-        <div id="container3" class="mt-3 container" style="display:none;">
-            <h3>Solicitud para creacion de nueva sucursal</h3>
-            <p>Disponible Proximamente</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-outline-primary" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
+                        <button class="btn btn-outline-primary" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
+                        <button class="btn btn-outline-primary" type="button" id="miercoles" onclick="toggleSelection('miercoles')">Miércoles</button>
+                        <button class="btn btn-outline-primary" type="button" id="jueves" onclick="toggleSelection('jueves')">Jueves</button>
+                        <button class="btn btn-outline-primary" type="button" id="viernes" onclick="toggleSelection('viernes')">Viernes</button>
+                        <button class="btn btn-outline-primary" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
+                        <button class="btn btn-outline-primary" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
+                    </div>
+                </div>
+
+                <!-- Checkbox para "plataforma" -->
+                <div class="container">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">¿El producto estará disponible en plataformas?</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckplataforma" onclick="toggleContainerplataforma()">
+                        <label class="form-check-label" for="flexCheckplataforma">
+                            Si
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Contenedor que contiene el campo de texto y los botones plataforma -->
+                <div id="containerContent1" style="display:none;">
+                    <div id="inputDiv">
+                        <input type="text" class="form-control" id="precioplataforma" placeholder="Indica el precio para plataformas">
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-outline-primary" type="button" id="Uber" onclick="toggleSelection('Uber')">Uber</button>
+                        <button class="btn btn-outline-primary" type="button" id="Didi" onclick="toggleSelection('Didi')">Didi</button>
+                        <button class="btn btn-outline-primary" type="button" id="Rappi" onclick="toggleSelection('Rappi')">Rappi</button>
+                        <button class="btn btn-outline-primary" type="button" id="Deli" onclick="toggleSelection('Deli')">Deli</button>
+                    </div>
+                </div>
+
+                <!-- Botones Limpiar y Enviar -->
+                <div class="mt-4">
+                    <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
+                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
+                </div>
+            </div>
+
+            <!-- Contenedor para otras opciones -->
+            <div id="container2" class="mt-3 container" style="display:none;">
+                <h3>Solicitud para creación de nuevo usuario</h3>
+                <div class="box-input">
+                    <input name="solicita" id="solicita" type="text" required>
+                    <span data-placeholder="Escribe tu nombre"></span>
+                </div>
+                <div class="box-input">
+                    <input name="Cargo" id="Cargo" type="text" required>
+                    <span data-placeholder="Escribe tu cargo"></span>
+                </div>
+                <div class="box-input">
+                    <input name="numero de telefono" id="contacto" type="text" required>
+                    <span data-placeholder="Número de telefono"></span>
+                </div>
+                <div class="box-input">
+                    <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
+                    <span data-placeholder="Sucursal o Zona donde se requiere la solicitud"></span>
+                </div>
+
+                <!-- Botones Limpiar y Enviar -->
+                <div class="mt-4">
+                    <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
+                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
+                </div>
+            </div>
+
+            <div id="container3" class="mt-3 container" style="display:none;">
+                <h3>Solicitud para creación de nueva sucursal</h3>
+                <p>Disponible próximamente</p>
+            </div>
         </div>
-    </div>
+
+    </form>
 
     <script>
-        // Función para mostrar el contenedor según el checkbox
-        function toggleContainer() {
-            var checkSi = document.getElementById('flexCheckSi');
-            var containerContent = document.getElementById('containerContent');
-            // Si el checkbox está marcado, muestra el contenedor completo
-            if (checkSi.checked) {
-                containerContent.style.display = 'block'; // Muestra el contenedor
-            } else {
-                containerContent.style.display = 'none'; // Oculta el contenedor
-            }
-        }
-
-        // Función para alternar la selección de un botón de los días de la semana
-        function toggleSelection(day) {
-            var button = document.getElementById(day);
-            // Alternamos la clase del botón
-            if (button.classList.contains('btn-outline-primary')) {
-                button.classList.remove('btn-outline-primary');
-                button.classList.add('btn-primary');
-            } else {
-                button.classList.remove('btn-primary');
-                button.classList.add('btn-outline-primary');
-            }
-        }
-
-            // Función para mostrar el contenedor plataforma
-            function toggleContainerplataforma() {
-            var checkplataforma = document.getElementById('flexCheckplataforma');
-            var containerContent1 = document.getElementById('containerContent1');
-            // Si el checkbox está marcado, muestra el contenedor completo
-            if (checkplataforma.checked) {
-                containerContent1.style.display = 'block'; // Muestra el contenedor plataforma
-            } else {
-                containerContent1.style.display = 'none'; // Oculta el contenedor plataforma
-            }
-        }
-
-        // Limpiar el formulario
-        function limpiarFormulario() {
-            // Limpiar los campos de texto
-            document.querySelectorAll('input').forEach(function(input) {
-                input.value = '';
-            });
-            // Limpiar los botones de días
-            var buttons = document.querySelectorAll('.btn-outline-primary');
-            buttons.forEach(function(button) {
-                button.classList.remove('btn-primary');
-                button.classList.add('btn-outline-primary');
-            });
-            // Limpiar checkboxes
-            document.getElementById('flexCheckSi').checked = false;
-            document.getElementById('flexCheckplataforma').checked = false; 
-            // Ocultar containers
-            document.getElementById('containerContent').style.display = 'none';
-            document.getElementById('containerContent1').style.display = 'none';
-        }
-
-        // Enviar el formulario a tu correo con Formspree
-        function enviarFormulario() {
-    var formData = new FormData();
-
-    // Obtener los valores del formulario
-    formData.append("solicita", document.getElementById("solicita").value);
-    formData.append("contacto", document.getElementById("contacto").value);
-    formData.append("ZonaSucursal", document.getElementById("Zona/Sucursal").value);
-    formData.append("NombreBoton", document.getElementById("Nombre del Boton/Paquete").value);
-    formData.append("Producto", document.getElementById("Producto principal").value);
-    formData.append("CantidadProducto", document.getElementById("Cantidad de Producto").value);
-    formData.append("precio", document.getElementById("precio").value);
-    formData.append("extras", document.getElementById("extras").value);
-    formData.append("categoria", document.getElementById("categoria").value);
-
-    // Obtener los días seleccionados
-    var diasSeleccionados = [];
-    var dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
-    dias.forEach(function(dia) {
-        var button = document.getElementById(dia);
-        if (button.classList.contains('btn-primary')) {
-            diasSeleccionados.push(dia);
-        }
-    });
-
-    // Agregar los días seleccionados al formulario
-    formData.append("diasDisponibles", diasSeleccionados.join(", "));
-
-    //campo fechas disponibles
-    var FechaDisponible = document.getElementById('fechadisponible').value;
-
-    //Formulario
-    formData.append("fechas disponibles", FechaDisponible);
-
-    // Obtener las plataformas seleccionadas
-    var plataformasSeleccionadas = [];
-    var plataformas = ["Uber", "Didi", "Rappi", "Deli"];
-    plataformas.forEach(function(plataforma) {
-        var button = document.getElementById(plataforma);
-        if (button.classList.contains('btn-primary')) {
-            plataformasSeleccionadas.push(plataforma);
-        }
-    });
-
-    // Agregar las plataformas seleccionadas al formulario
-    formData.append("plataformasDisponibles", plataformasSeleccionadas.join(", "));
-
-    //campo precio plataformas
-    var PrecioPlataforma = document.getElementById('precioplataforma').value;
-
-    //Formulario
-    formData.append("precio plataformas", PrecioPlataforma);
-
-    // Enviar los datos mediante una solicitud POST a Formspree
-    fetch('https://formspree.io/f/mjkvdndj', {  
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Mostrar la alerta de éxito
-        var alertaExito = document.getElementById('alertaExito');
-        alertaExito.style.display = 'block'; // Mostrar la alerta
-
-        // Limpiar el formulario
-        limpiarFormulario();
-
-        // Ocultar la alerta después de 3 segundos
-        setTimeout(function() {
-            alertaExito.style.display = 'none';
-        }, 3000);
-    })
-    .catch(error => {
-        console.error('Error al enviar el formulario:', error);
-    });
-}
-
-// Función para limpiar el formulario (si es necesario)
-function limpiarFormulario() {
-    document.getElementById("solicita").value = '';
-    document.getElementById("contacto").value = '';
-    document.getElementById("Zona/Sucursal").value = '';
-    document.getElementById("Nombre del Boton/Paquete").value = '';
-    document.getElementById("Producto principal").value = '';
-    document.getElementById("Cantidad de Producto").value = '';
-    document.getElementById("precio").value = '';
-    document.getElementById("extras").value = '';
-    document.getElementById("categoria").value = '';
-    
-    // Resetear los botones de días y plataformas si es necesario
-    var dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
-    dias.forEach(function(dia) {
-        document.getElementById(dia).classList.remove('btn-primary');
-        document.getElementById(dia).classList.add('btn-secondary');
-    });
-
-    var plataformas = ["Uber", "Didi", "Rappi", "Deli"];
-    plataformas.forEach(function(plataforma) {
-        document.getElementById(plataforma).classList.remove('btn-primary');
-        document.getElementById(plataforma).classList.add('btn-secondary');
-    });
-}
-
-        // Mostrar el contenedor adecuado según la opción seleccionada
+        // Función para mostrar el contenedor según la opción seleccionada
         const select = document.getElementById("formSelect");
         const containers = {
             1: document.getElementById("container1"),
@@ -356,17 +191,45 @@ function limpiarFormulario() {
             });
         });
 
-        type="text/javascript">
-          $(".box-input input").on("focus", function(){
-              $(this).addClass("focus");
-          });
+        function toggleContainer() {
+            var checkSi = document.getElementById('flexCheckSi');
+            var containerContent = document.getElementById('containerContent');
+            if (checkSi.checked) {
+                containerContent.style.display = 'block';
+            } else {
+                containerContent.style.display = 'none';
+            }
+        }
 
-          $(".box-input input").on("blur", function(){
-              if($(this).val() == ""){
-                  $(this).removeClass("focus");
-              }
-          });
+        function toggleSelection(day) {
+            var button = document.getElementById(day);
+            if (button.classList.contains('btn-outline-primary')) {
+                button.classList.remove('btn-outline-primary');
+                button.classList.add('btn-primary');
+            } else {
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-outline-primary');
+            }
+        }
+
+        function toggleContainerplataforma() {
+            var checkPlataforma = document.getElementById('flexCheckplataforma');
+            var containerContent1 = document.getElementById('containerContent1');
+            if (checkPlataforma.checked) {
+                containerContent1.style.display = 'block';
+            } else {
+                containerContent1.style.display = 'none';
+            }
+        }
+
+        function limpiarFormulario() {
+            document.querySelector('form').reset();
+            Object.values(containers).forEach(container => container.style.display = 'none');
+        }
+
+        function enviarFormulario() {
+            document.querySelector('form').submit();
+        }
     </script>
-
 </body>
 </html>
