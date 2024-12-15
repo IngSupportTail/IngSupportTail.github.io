@@ -20,15 +20,15 @@
     <div class="container mt-5">
         <label for="formSelect" class="form-label">Selecciona el Formulario</label>
         <select class="form-select" id="formSelect" aria-label="Selecciona el Formulario">
-            <option selected>Open this select menu</option>
-            <option value="1">Solicitud Boton Nuevo</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option selected>Selecciona tu Pechusolicitud</option>
+            <option value="1">Pechusolicitud Paquete/Boton nuevo</option>
+            <option value="2">Pechusolicitud para un nuevo usuario</option>
+            <option value="3">Proximamente!</option>
         </select>
 
         <!-- Contenedor para la opción 1 -->
         <div id="container1" class="mt-3 container" style="display:none;">
-            <h3>Solicitud para un boton nuevo</h3>
+            <h3>Solicitud para un paquete/boton nuevo</h3>
             <div class="box-input">
                 <input name="solicita" id="solicita" type="text" required>
                 <span data-placeholder="Escribe tu nombre"></span>
@@ -229,33 +229,59 @@
         }
 
         // Enviar el formulario a tu correo con Formspree
-        function enviarFormulario() {
+           function enviarFormulario() {
             var formData = new FormData();
 
-            // Obtener los valores del formulario
-            formData.append("solicita", document.getElementById("solicita").value);
-            formData.append("contacto", document.getElementById("contacto").value);
-            formData.append("ZonaSucursal", document.getElementById("ZonaSucursal").value);
-            formData.append("NombreBoton", document.getElementById("NombreBoton").value);
-            formData.append("Producto", document.getElementById("Producto").value);
-            formData.append("CantidadProducto", document.getElementById("CantidadProducto").value);
-            formData.append("precio", document.getElementById("precio").value);
-            formData.append("extras", document.getElementById("extras").value);
-            
-            // Enviar los datos mediante una solicitud POST a Formspree
-            fetch('https://formspree.io/f/mjkvdndj', {  
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Formulario enviado con éxito');
-            })
-            .catch(error => {
-                console.error('Error al enviar el formulario:', error);
-            });
-        }
+             // Obtener los valores del formulario
+                 formData.append("solicita", document.getElementById("solicita").value);
+                 formData.append("contacto", document.getElementById("contacto").value);
+                 formData.append("ZonaSucursal", document.getElementById("Zona/Sucursal").value);
+                 formData.append("NombreBoton", document.getElementById("Nombre del Boton/Paquete").value);
+                 formData.append("Producto", document.getElementById("Producto principal").value);
+                 formData.append("CantidadProducto", document.getElementById("Cantidad de Producto").value);
+                 formData.append("precio", document.getElementById("precio").value);
+                 formData.append("extras", document.getElementById("extras").value);
+                 formData.append("categoria", document.getElementById("categoria").value);
 
+            // Obtener los días seleccionados
+                var diasSeleccionados = [];
+                var dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+                 dias.forEach(function(dia) {
+                  var button = document.getElementById(dia);
+                 if (button.classList.contains('btn-primary')) {
+                      diasSeleccionados.push(dia);
+                     }
+                });
+
+            // Agregar los días seleccionados al formulario
+                formData.append("diasDisponibles", diasSeleccionados.join(", "));
+
+            // Obtener las plataformas seleccionadas
+                var plataformasSeleccionadas = [];
+                var plataformas = ["Uber", "Didi", "Rappi", "Deli"];
+                plataformas.forEach(function(plataforma) {
+                var button = document.getElementById(plataforma);
+                if (button.classList.contains('btn-primary')) {
+                      plataformasSeleccionadas.push(plataforma);
+                  }
+                   });
+
+             // Agregar las plataformas seleccionadas al formulario
+                formData.append("plataformasDisponibles", plataformasSeleccionadas.join(", "));
+
+            // Enviar los datos mediante una solicitud POST a Formspree
+                fetch('https://formspree.io/f/mjkvdndj', {  
+                     method: 'POST',
+                        body: formData
+                    })
+                 .then(response => response.json())
+                 .then(data => {
+                   alert('Formulario enviado con éxito');
+                 })
+                 .catch(error => {
+                 console.error('Error al enviar el formulario:', error);
+                });
+                }
         // Mostrar el contenedor adecuado según la opción seleccionada
         const select = document.getElementById("formSelect");
         const containers = {
