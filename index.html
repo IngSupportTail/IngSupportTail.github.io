@@ -290,33 +290,27 @@
 
     // Enviar los datos mediante una solicitud POST a Formspree
     fetch('https://formspree.io/f/mjkvdndj', {  
-    method: 'POST',
-    body: formData
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error('Error en el envío del formulario');
-    }
-    return response.json();
-})
-.then(data => {
-    // Mostrar la alerta de éxito
-    var alertaExito = document.getElementById('alertaExito');
-    alertaExito.style.display = 'block'; // Mostrar la alerta
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Mostrar la alerta de éxito
+        var alertaExito = document.getElementById('alertaExito');
+        alertaExito.style.display = 'block'; // Mostrar la alerta
 
-    // Limpiar el formulario
-    limpiarFormulario();
+        // Limpiar el formulario
+        limpiarFormulario();
 
-    // Ocultar la alerta después de 3 segundos
-    setTimeout(function() {
-        alertaExito.style.display = 'none';
-    }, 3000);
-})
-.catch(error => {
-    console.error('Error al enviar el formulario:', error);
-    alert("Hubo un error al enviar el formulario. Intenta nuevamente.");
-});
-
+        // Ocultar la alerta después de 3 segundos
+        setTimeout(function() {
+            alertaExito.style.display = 'none';
+        }, 3000);
+    })
+    .catch(error => {
+        console.error('Error al enviar el formulario:', error);
+    });
+}
 
 // Función para limpiar el formulario (si es necesario)
 function limpiarFormulario() {
