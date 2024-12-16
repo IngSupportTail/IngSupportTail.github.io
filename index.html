@@ -127,17 +127,21 @@
                     </div>
 
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-outline-dark" type="button" id="Uber" onclick="toggleSelection('Uber')">Uber</button>
-                        <button class="btn btn-outline-dark" type="button" id="Didi" onclick="toggleSelection('Didi')">Didi</button>
-                        <button class="btn btn-outline-dark" type="button" id="Rappi" onclick="toggleSelection('Rappi')">Rappi</button>
-                        <button class="btn btn-outline-dark" type="button" id="Deli" onclick="toggleSelection('Deli')">Deli</button>
+                        <button class="btn btn-outline-dark" type="button" id="Uber" onclick="toggleSelectionPlataforma('Uber')">Uber</button>
+                        <button class="btn btn-outline-dark" type="button" id="Didi" onclick="toggleSelectionPlataforma('Didi')">Didi</button>
+                        <button class="btn btn-outline-dark" type="button" id="Rappi" onclick="toggleSelectionPlataforma('Rappi')">Rappi</button>
+                        <button class="btn btn-outline-dark" type="button" id="Deli" onclick="toggleSelectionPlataforma('Deli')">Deli</button>
                     </div>
                 </div>
+
+                <!-- Campos ocultos para los días seleccionados y plataformas -->
+                <input type="hidden" name="diasSeleccionados" id="diasSeleccionados">
+                <input type="hidden" name="plataformasSeleccionadas" id="plataformasSeleccionadas">
 
                 <!-- Botones Limpiar y Enviar -->
                 <div class="mt-4">
                     <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
-                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
+                    <button class="btn btn-success" type="submit">Enviar</button>
                 </div>
             </div>
 
@@ -153,114 +157,99 @@
                     <span data-placeholder="Escribe tu cargo"></span>
                 </div>
                 <div class="box-input">
-                    <input name="numero de telefono" id="contacto" type="text" required>
-                    <span data-placeholder="Número de telefono"></span>
+                    <input name="contacto" id="contacto" type="text" required>
+                    <span data-placeholder="Número de teléfono"></span>
                 </div>
-                <div class="box-input">
-                    <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
-                    <span data-placeholder="Sucursal o Zona donde se requiere la solicitud"></span>
-                </div>
-
-                <!-- Botones Limpiar y Enviar -->
-                <div class="mt-4">
-                    <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
-                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
-                </div>
-            </div>
-
-            <div id="container3" class="mt-3 container" style="display:none;">
-                <h3>Solicitud para creación de nueva sucursal</h3>
-                <p>Disponible próximamente</p>
             </div>
         </div>
-
     </form>
 
     <script>
-        // Función para mostrar el contenedor según la opción seleccionada
-        const select = document.getElementById("formSelect");
-        const containers = {
-            1: document.getElementById("container1"),
-            2: document.getElementById("container2"),
-            3: document.getElementById("container3")
-        };
-
-        select.addEventListener("change", function() {
-            const selectedValue = this.value;
-            Object.keys(containers).forEach(key => {
-                containers[key].style.display = (key === selectedValue) ? "block" : "none";
-            });
-        });
-        //Funcion chekboxNo
-        function toggleContainer() {
-            var checkSi = document.getElementById('flexCheckSi');
-            var containerContent = document.getElementById('containerContent');
-            if (checkSi.checked) {
-                containerContent.style.display = 'block';
-            } else {
-                containerContent.style.display = 'none';
-            }
-        }
-        //Funcion CheckboxSi
         function toggleSelection(day) {
             var button = document.getElementById(day);
+            var diasSeleccionados = document.getElementById('diasSeleccionados');
+            var selectedDays = diasSeleccionados.value.split(',');
+
+            // Alternar el botón entre seleccionado y no seleccionado
             if (button.classList.contains('btn-outline-dark')) {
                 button.classList.remove('btn-outline-dark');
                 button.classList.add('btn-dark');
+
+                // Agregar el día a la lista de días seleccionados
+                if (!selectedDays.includes(day)) {
+                    selectedDays.push(day);
+                }
             } else {
                 button.classList.remove('btn-dark');
                 button.classList.add('btn-outline-dark');
+
+                // Eliminar el día de la lista de días seleccionados
+                const index = selectedDays.indexOf(day);
+                if (index > -1) {
+                    selectedDays.splice(index, 1);
+                }
             }
+
+            // Actualizar el campo oculto
+            diasSeleccionados.value = selectedDays.join(',');
+        }
+
+        function toggleSelectionPlataforma(platform) {
+            var button = document.getElementById(platform);
+            var plataformasSeleccionadas = document.getElementById('plataformasSeleccionadas');
+            var selectedPlatforms = plataformasSeleccionadas.value.split(',');
+
+            // Alternar el botón entre seleccionado y no seleccionado
+            if (button.classList.contains('btn-outline-dark')) {
+                button.classList.remove('btn-outline-dark');
+                button.classList.add('btn-dark');
+
+                // Agregar la plataforma a la lista de plataformas seleccionadas
+                if (!selectedPlatforms.includes(platform)) {
+                    selectedPlatforms.push(platform);
+                }
+            } else {
+                button.classList.remove('btn-dark');
+                button.classList.add('btn-outline-dark');
+
+                // Eliminar la plataforma de la lista de plataformas seleccionadas
+                const index = selectedPlatforms.indexOf(platform);
+                if (index > -1) {
+                    selectedPlatforms.splice(index, 1);
+                }
+            }
+
+            // Actualizar el campo oculto
+            plataformasSeleccionadas.value = selectedPlatforms.join(',');
+        }
+
+        function toggleContainer() {
+            var container = document.getElementById('containerContent');
+            container.style.display = (container.style.display === 'none') ? 'block' : 'none';
         }
 
         function toggleContainerplataforma() {
-            var checkPlataforma = document.getElementById('flexCheckplataforma');
-            var containerContent1 = document.getElementById('containerContent1');
-            if (checkPlataforma.checked) {
-                containerContent1.style.display = 'block';
-            } else {
-                containerContent1.style.display = 'none';
-            }
+            var container = document.getElementById('containerContent1');
+            container.style.display = (container.style.display === 'none') ? 'block' : 'none';
         }
 
         function limpiarFormulario() {
-    // Restablecer el formulario
-    document.querySelector('form').reset();
-
-    // Ocultar todos los contenedores
-    Object.values(containers).forEach(container => container.style.display = 'none');
-
-    // Resetear los checkboxes
-    document.getElementById('flexCheckSi').checked = false;
-    document.getElementById('flexCheckplataforma').checked = false;
-
-    // Ocultar los contenedores relacionados a los checkboxes
-    document.getElementById('containerContent').style.display = 'none';
-    document.getElementById('containerContent1').style.display = 'none';
-
-    // Restablecer los botones seleccionados dias plataformas
-    var buttons = document.querySelectorAll('.btn-outline-primary');
-    buttons.forEach(function(button) {
-        button.classList.remove('btn-primary');
-        button.classList.add('btn-outline-primary');
-    });
-}
-
-    
-        function enviarFormulario() {
-            document.querySelector('form').submit();
+            var form = document.querySelector('form');
+            form.reset();
+            document.getElementById('diasSeleccionados').value = '';
+            document.getElementById('plataformasSeleccionadas').value = '';
+            var containers = document.querySelectorAll('#containerContent, #containerContent1');
+            containers.forEach(function(container) {
+                container.style.display = 'none';
+            });
         }
-        //texto flotante
-        type="text/javascript">
-          $(".box-input input").on("focus", function(){
-              $(this).addClass("focus");
-          });
 
-          $(".box-input input").on("blur", function(){
-              if($(this).val() == ""){
-                  $(this).removeClass("focus");
-              }
-          });
+        // Mostrar u ocultar los contenedores según la opción seleccionada
+        document.getElementById("formSelect").addEventListener("change", function() {
+            var selectedOption = this.value;
+            document.getElementById("container1").style.display = (selectedOption == "1") ? "block" : "none";
+            document.getElementById("container2").style.display = (selectedOption == "2") ? "block" : "none";
+        });
     </script>
 </body>
 </html>
