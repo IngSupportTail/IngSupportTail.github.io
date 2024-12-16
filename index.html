@@ -217,63 +217,64 @@
             }
         }
         //Funcion CheckboxSi
-        function toggleSelection(day) {
-            var button = document.getElementById(day);
-            var diasSeleccionados = document.getElementById('diasSeleccionados');
-            var selectedDays = diasSeleccionados.value.split(',');
+function toggleSelection(day) {
+    var button = document.getElementById(day);
+    var diasSeleccionados = document.getElementById('diasSeleccionados');
+    var selectedDays = diasSeleccionados.value.split(',');
 
-            // Alternar el botón entre seleccionado y no seleccionado
-            if (button.classList.contains('btn-outline-dark')) {
-                button.classList.remove('btn-outline-dark');
-                button.classList.add('btn-dark');
+    // Alternar el botón entre seleccionado y no seleccionado
+    if (button.classList.contains('btn-outline-dark')) {
+        button.classList.remove('btn-outline-dark');
+        button.classList.add('btn-dark');
 
-                // Agregar el día a la lista de días seleccionados
-                if (!selectedDays.includes(day)) {
-                    selectedDays.push(day);
-                }
-            } else {
-                button.classList.remove('btn-dark');
-                button.classList.add('btn-outline-dark');
-
-                // Eliminar el día de la lista de días seleccionados
-                const index = selectedDays.indexOf(day);
-                if (index > -1) {
-                    selectedDays.splice(index, 1);
-                }
-            }
-
-            // Actualizar el campo oculto
-            diasSeleccionados.value = selectedDays.join(',');
+        // Agregar el día a la lista de días seleccionados
+        if (!selectedDays.includes(day)) {
+            selectedDays.push(day);
         }
+    } else {
+        button.classList.remove('btn-dark');
+        button.classList.add('btn-outline-dark');
 
-        function toggleSelectionPlataforma(platform) {
-            var button = document.getElementById(platform);
-            var plataformasSeleccionadas = document.getElementById('plataformasSeleccionadas');
-            var selectedPlatforms = plataformasSeleccionadas.value.split(',');
-
-            // Alternar el botón entre seleccionado y no seleccionado
-            if (button.classList.contains('btn-outline-dark')) {
-                button.classList.remove('btn-outline-dark');
-                button.classList.add('btn-dark');
-
-                // Agregar la plataforma a la lista de plataformas seleccionadas
-                if (!selectedPlatforms.includes(platform)) {
-                    selectedPlatforms.push(platform);
-                }
-            } else {
-                button.classList.remove('btn-dark');
-                button.classList.add('btn-outline-dark');
-
-                // Eliminar la plataforma de la lista de plataformas seleccionadas
-                const index = selectedPlatforms.indexOf(platform);
-                if (index > -1) {
-                    selectedPlatforms.splice(index, 1);
-                }
-            }
-
-            // Actualizar el campo oculto
-            plataformasSeleccionadas.value = selectedPlatforms.join(',');
+        // Eliminar el día de la lista de días seleccionados
+        const index = selectedDays.indexOf(day);
+        if (index > -1) {
+            selectedDays.splice(index, 1);
         }
+    }
+
+    // Actualizar el campo oculto con los días seleccionados
+    diasSeleccionados.value = selectedDays.join(',');
+}
+
+// Función para alternar la selección de las plataformas
+function toggleSelectionPlataforma(platform) {
+    var button = document.getElementById(platform);
+    var plataformasSeleccionadas = document.getElementById('plataformasSeleccionadas');
+    var selectedPlatforms = plataformasSeleccionadas.value.split(',');
+
+    // Alternar el botón entre seleccionado y no seleccionado
+    if (button.classList.contains('btn-outline-dark')) {
+        button.classList.remove('btn-outline-dark');
+        button.classList.add('btn-dark');
+
+        // Agregar la plataforma a la lista de plataformas seleccionadas
+        if (!selectedPlatforms.includes(platform)) {
+            selectedPlatforms.push(platform);
+        }
+    } else {
+        button.classList.remove('btn-dark');
+        button.classList.add('btn-outline-dark');
+
+        // Eliminar la plataforma de la lista de plataformas seleccionadas
+        const index = selectedPlatforms.indexOf(platform);
+        if (index > -1) {
+            selectedPlatforms.splice(index, 1);
+        }
+    }
+
+    // Actualizar el campo oculto con las plataformas seleccionadas
+    plataformasSeleccionadas.value = selectedPlatforms.join(',');
+}
 
         function limpiarFormulario() {
     // Restablecer el formulario
