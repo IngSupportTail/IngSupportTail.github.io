@@ -250,6 +250,17 @@
             document.getElementById("container1").style.display = (selectedOption == "1") ? "block" : "none";
             document.getElementById("container2").style.display = (selectedOption == "2") ? "block" : "none";
         });
+        //texto flotante
+        type="text/javascript">
+          $(".box-input input").on("focus", function(){
+              $(this).addClass("focus");
+          });
+
+          $(".box-input input").on("blur", function(){
+              if($(this).val() == ""){
+                  $(this).removeClass("focus");
+              }
+          });
     </script>
 </body>
 </html>
