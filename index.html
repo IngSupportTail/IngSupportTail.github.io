@@ -223,9 +223,28 @@
         }
 
         function limpiarFormulario() {
-            document.querySelector('form').reset();
-            Object.values(containers).forEach(container => container.style.display = 'none');
-        }
+    // Restablecer el formulario
+    document.querySelector('form').reset();
+
+    // Ocultar todos los contenedores
+    Object.values(containers).forEach(container => container.style.display = 'none');
+
+    // Resetear los checkboxes
+    document.getElementById('flexCheckSi').checked = false;
+    document.getElementById('flexCheckplataforma').checked = false;
+
+    // Ocultar los contenedores relacionados a los checkboxes
+    document.getElementById('containerContent').style.display = 'none';
+    document.getElementById('containerContent1').style.display = 'none';
+
+    // Restablecer los botones seleccionados (Lunes, Martes, etc.)
+    var buttons = document.querySelectorAll('.btn-outline-primary');
+    buttons.forEach(function(button) {
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-outline-primary');
+    });
+}
+
 
         function enviarFormulario() {
             document.querySelector('form').submit();
