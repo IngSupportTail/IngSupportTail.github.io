@@ -93,7 +93,8 @@
                 <!-- Contenedor que contiene el campo de texto y los botones -->
                 <div id="containerContent" style="display:none;">
                     <div id="inputDiv">
-                        <input type="text" class="form-control" id="fechadisponible" placeholder="Indica qué fechas estará disponible">
+                        <label for="fechadisponible">Indica qué fechas estará disponible:</label>
+                        <input type="text" class="form-control" id="fechadisponible" name="fechadisponible" placeholder="Indica qué fechas estará disponible">
                     </div>
 
                     <div class="d-grid gap-2 d-md-block">
@@ -123,7 +124,8 @@
                 <!-- Contenedor que contiene el campo de texto y los botones plataforma -->
                 <div id="containerContent1" style="display:none;">
                     <div id="inputDiv">
-                        <input type="text" class="form-control" id="precioplataforma" placeholder="Indica el precio para plataformas">
+                        <label for="fechadisponible">Indica el precio en plataformas:</label>
+                        <input type="text" class="form-control" id="precioplataformas" name="precioplataformas" placeholder="Indica precio en plataformas">
                     </div>
 
                     <div class="d-grid gap-2 d-md-block">
@@ -135,8 +137,8 @@
                 </div>
 
                 <!--Campos ocultos-->
-                <input type="hidden" name="diasSeleccionados" id="diasSeleccionados">
-                <input type="hidden" name="plataformasSeleccionadas" id="plataformasSeleccionadas">
+                <input type="hidden" name="DiasSeleccionados" id="DiasSeleccionados">
+                <input type="hidden" name="plataformasactivas" id="plataformasactivas">
 
         
                 <!-- Botones Limpiar y Enviar -->
@@ -220,7 +222,7 @@
 // Función para alternar la selección de los días
 function toggleSelection(day) {
     var button = document.getElementById(day);
-    var diasSeleccionados = document.getElementById('diasSeleccionados');
+    var diasSeleccionados = document.getElementById('DiasSeleccionados');
     var selectedDays = diasSeleccionados.value.split(',').filter(Boolean);  // Evitar valores vacíos
 
     // Alternar el botón entre seleccionado y no seleccionado
@@ -244,13 +246,13 @@ function toggleSelection(day) {
     }
 
     // Actualizar el campo oculto con los días seleccionados
-    diasSeleccionados.value = selectedDays.join(',');
+    DiasSeleccionados.value = selectedDays.join(',');
 }
 
 // Función para alternar la selección de las plataformas
 function toggleSelectionPlataforma(platform) {
     var button = document.getElementById(platform);
-    var plataformasSeleccionadas = document.getElementById('plataformasSeleccionadas');
+    var plataformasSeleccionadas = document.getElementById('plataformasactivas');
     var selectedPlatforms = plataformasSeleccionadas.value.split(',').filter(Boolean);  // Evitar valores vacíos
 
     // Alternar el botón entre seleccionado y no seleccionado
@@ -274,7 +276,7 @@ function toggleSelectionPlataforma(platform) {
     }
 
     // Actualizar el campo oculto con las plataformas seleccionadas
-    plataformasSeleccionadas.value = selectedPlatforms.join(',');
+    plataformasactivas.value = selectedPlatforms.join(',');
 }
 
         function limpiarFormulario() {
