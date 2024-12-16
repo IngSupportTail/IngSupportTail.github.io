@@ -127,21 +127,22 @@
                     </div>
 
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-outline-dark" type="button" id="Uber" onclick="toggleSelectionPlataforma('Uber')">Uber</button>
-                        <button class="btn btn-outline-dark" type="button" id="Didi" onclick="toggleSelectionPlataforma('Didi')">Didi</button>
-                        <button class="btn btn-outline-dark" type="button" id="Rappi" onclick="toggleSelectionPlataforma('Rappi')">Rappi</button>
-                        <button class="btn btn-outline-dark" type="button" id="Deli" onclick="toggleSelectionPlataforma('Deli')">Deli</button>
+                        <button class="btn btn-outline-dark" type="button" id="Uber" onclick="toggleSelection('Uber')">Uber</button>
+                        <button class="btn btn-outline-dark" type="button" id="Didi" onclick="toggleSelection('Didi')">Didi</button>
+                        <button class="btn btn-outline-dark" type="button" id="Rappi" onclick="toggleSelection('Rappi')">Rappi</button>
+                        <button class="btn btn-outline-dark" type="button" id="Deli" onclick="toggleSelection('Deli')">Deli</button>
                     </div>
                 </div>
 
-                <!-- Campos ocultos para los días seleccionados y plataformas -->
+                <!--Campos ocultos-->
                 <input type="hidden" name="diasSeleccionados" id="diasSeleccionados">
                 <input type="hidden" name="plataformasSeleccionadas" id="plataformasSeleccionadas">
 
+        
                 <!-- Botones Limpiar y Enviar -->
                 <div class="mt-4">
                     <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
-                    <button class="btn btn-success" type="submit">Enviar</button>
+                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
                 </div>
             </div>
 
@@ -157,14 +158,55 @@
                     <span data-placeholder="Escribe tu cargo"></span>
                 </div>
                 <div class="box-input">
-                    <input name="contacto" id="contacto1" type="text" required>
-                    <span data-placeholder="Número de teléfono"></span>
+                    <input name="numero de telefono" id="contacto" type="text" required>
+                    <span data-placeholder="Número de telefono"></span>
+                </div>
+                <div class="box-input">
+                    <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
+                    <span data-placeholder="Sucursal o Zona donde se requiere la solicitud"></span>
+                </div>
+
+                <!-- Botones Limpiar y Enviar -->
+                <div class="mt-4">
+                    <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
+                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
                 </div>
             </div>
+
+            <div id="container3" class="mt-3 container" style="display:none;">
+                <h3>Solicitud para creación de nueva sucursal</h3>
+                <p>Disponible próximamente</p>
+            </div>
         </div>
+
     </form>
 
     <script>
+        // Función para mostrar el contenedor según la opción seleccionada
+        const select = document.getElementById("formSelect");
+        const containers = {
+            1: document.getElementById("container1"),
+            2: document.getElementById("container2"),
+            3: document.getElementById("container3")
+        };
+
+        select.addEventListener("change", function() {
+            const selectedValue = this.value;
+            Object.keys(containers).forEach(key => {
+                containers[key].style.display = (key === selectedValue) ? "block" : "none";
+            });
+        });
+        //Funcion chekboxNo
+        function toggleContainer() {
+            var checkSi = document.getElementById('flexCheckSi');
+            var containerContent = document.getElementById('containerContent');
+            if (checkSi.checked) {
+                containerContent.style.display = 'block';
+            } else {
+                containerContent.style.display = 'none';
+            }
+        }
+        //Funcion CheckboxSi
         function toggleSelection(day) {
             var button = document.getElementById(day);
             var diasSeleccionados = document.getElementById('diasSeleccionados');
@@ -223,33 +265,33 @@
             plataformasSeleccionadas.value = selectedPlatforms.join(',');
         }
 
-        function toggleContainer() {
-            var container = document.getElementById('containerContent');
-            container.style.display = (container.style.display === 'none') ? 'block' : 'none';
-        }
-
-        function toggleContainerplataforma() {
-            var container = document.getElementById('containerContent1');
-            container.style.display = (container.style.display === 'none') ? 'block' : 'none';
-        }
-
         function limpiarFormulario() {
-            var form = document.querySelector('form');
-            form.reset();
-            document.getElementById('diasSeleccionados').value = '';
-            document.getElementById('plataformasSeleccionadas').value = '';
-            var containers = document.querySelectorAll('#containerContent, #containerContent1');
-            containers.forEach(function(container) {
-                container.style.display = 'none';
-            });
-        }
+    // Restablecer el formulario
+    document.querySelector('form').reset();
 
-        // Mostrar u ocultar los contenedores según la opción seleccionada
-        document.getElementById("formSelect").addEventListener("change", function() {
-            var selectedOption = this.value;
-            document.getElementById("container1").style.display = (selectedOption == "1") ? "block" : "none";
-            document.getElementById("container2").style.display = (selectedOption == "2") ? "block" : "none";
-        });
+    // Ocultar todos los contenedores
+    Object.values(containers).forEach(container => container.style.display = 'none');
+
+    // Resetear los checkboxes
+    document.getElementById('flexCheckSi').checked = false;
+    document.getElementById('flexCheckplataforma').checked = false;
+
+    // Ocultar los contenedores relacionados a los checkboxes
+    document.getElementById('containerContent').style.display = 'none';
+    document.getElementById('containerContent1').style.display = 'none';
+
+    // Restablecer los botones seleccionados dias plataformas
+    var buttons = document.querySelectorAll('.btn-outline-primary');
+    buttons.forEach(function(button) {
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-outline-primary');
+    });
+}
+
+    
+        function enviarFormulario() {
+            document.querySelector('form').submit();
+        }
         //texto flotante
         type="text/javascript">
           $(".box-input input").on("focus", function(){
