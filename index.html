@@ -295,6 +295,7 @@
     fetch('https://formspree.io/f/mjkvdndj', {  
         method: 'POST',
         body: formData
+        mode: 'no-cors'
     })
     .then(response => response.json())
     .then(data => {
