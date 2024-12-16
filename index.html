@@ -217,10 +217,11 @@
             }
         }
         //Funcion CheckboxSi
+// Función para alternar la selección de los días
 function toggleSelection(day) {
     var button = document.getElementById(day);
     var diasSeleccionados = document.getElementById('diasSeleccionados');
-    var selectedDays = diasSeleccionados.value.split(',');
+    var selectedDays = diasSeleccionados.value.split(',').filter(Boolean);  // Evitar valores vacíos
 
     // Alternar el botón entre seleccionado y no seleccionado
     if (button.classList.contains('btn-outline-dark')) {
@@ -250,7 +251,7 @@ function toggleSelection(day) {
 function toggleSelectionPlataforma(platform) {
     var button = document.getElementById(platform);
     var plataformasSeleccionadas = document.getElementById('plataformasSeleccionadas');
-    var selectedPlatforms = plataformasSeleccionadas.value.split(',');
+    var selectedPlatforms = plataformasSeleccionadas.value.split(',').filter(Boolean);  // Evitar valores vacíos
 
     // Alternar el botón entre seleccionado y no seleccionado
     if (button.classList.contains('btn-outline-dark')) {
