@@ -206,6 +206,16 @@
                 containerContent.style.display = 'none';
             }
         }
+        
+        function toggleContainerplataforma() {
+            var checkPlataforma = document.getElementById('flexCheckplataforma');
+            var containerContent1 = document.getElementById('containerContent1');
+            if (checkPlataforma.checked) {
+                containerContent1.style.display = 'block';
+            } else {
+                containerContent1.style.display = 'none';
+            }
+        }
         //Funcion CheckboxSi
         function toggleSelection(day) {
             var button = document.getElementById(day);
