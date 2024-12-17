@@ -330,17 +330,20 @@ function toggleSelectionPlataforma(platform) {
 
     
         function enviarFormulario() {
-            // Seleccionamos el formulario
-    var formulario = document.querySelector('#formularioboton');
+           // Seleccionamos el formulario
+    var formulario = document.querySelector('#formularioUsuario');
 
 // Obtenemos todos los campos del formulario
 var campos = formulario.querySelectorAll('input, select, textarea');
 
-// Comprobamos si todos los campos están llenos
+// Array con los nombres de los campos que no son obligatorios
+var camposNoObligatorios = ['DiasSeleccionados', 'plataformasactivas', 'precioplataformas','fechadisponible']; // Excluir estos campos de la validación
+
+// Comprobamos si todos los campos están llenos excepto los que están en camposNoObligatorios
 for (var i = 0; i < campos.length; i++) {
-    // Si algún campo está vacío, mostramos un mensaje y evitamos el envío
-    if (campos[i].value.trim() === '') {
-        alert('Por favor, completa todos los campos.');
+    // Si el nombre del campo no está en el array, validamos que no esté vacío
+    if (!camposNoObligatorios.includes(campos[i].name) && campos[i].value.trim() === '') {
+        alert('Por favor, completa todos los campos obligatorios.');
         return; // Detiene la ejecución de la función si algún campo está vacío
     }
 }
@@ -360,8 +363,8 @@ formulario.submit();
     // Comprobamos si todos los campos están llenos
     for (var i = 0; i < campos.length; i++) {
         // Si algún campo está vacío, mostramos un mensaje y evitamos el envío
-        if (campos[i].value.trim() === '') {
-            alert('Por favor, completa todos los campos.');
+        if (campos[i].name !== 'CorreoPersona' && campos[i].value.trim() === '') {
+            alert('Por favor, completa todos los campos obligatorios.');
             return; // Detiene la ejecución de la función si algún campo está vacío
         }
     }
