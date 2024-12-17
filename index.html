@@ -16,7 +16,7 @@
     <div class="container">
         <img src="/Images/pechugon-header.png" class="img-thumbnail" alt="header">
     </div>
-    <form action="https://formspree.io/f/manygbrr" method="POST">
+    <form id="formularioboton" action="https://formspree.io/f/manygbrr" method="POST">
         <div id="alertaExito" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
             <strong>¡Éxito!</strong> La solicitud fue enviada correctamente.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -150,7 +150,7 @@
         </form>
             <!-- Contenedor para otras opciones -->
 
-            <form
+            <form id="formularioUsuario"
                 action="https://formspree.io/f/mdkordqr" method="POST" >
             <div id="container2" class="mt-3 container" style="display:none;">
                 <h3>Solicitud para creación de nuevo usuario</h3>
@@ -330,11 +330,11 @@ function toggleSelectionPlataforma(platform) {
 
     
         function enviarFormulario() {
-            document.querySelector('form').submit();
+            document.querySelector('#formularioboton').submit();
         }
 
         function enviarFormulario1() {
-            document.querySelector('form').submit();
+            document.querySelector('#formularioUsuario').submit();
         }
         //texto flotante
         type="text/javascript">
