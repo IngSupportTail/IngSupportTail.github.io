@@ -16,7 +16,7 @@
     <div class="container">
         <img src="/Images/pechugon-header.png" class="img-thumbnail" alt="header">
     </div>
-    <form action="https://formspree.io/f/mjkvdndj" method="POST">
+    <form action="https://formspree.io/f/manygbrr" method="POST">
         <div id="alertaExito" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
             <strong>¡Éxito!</strong> La solicitud fue enviada correctamente.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -147,8 +147,13 @@
                     <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
                 </div>
             </div>
-
+        
             <!-- Contenedor para otras opciones -->
+
+            <form1
+                action="https://formspree.io/f/mdkordqr"
+                method="POST"
+                 >
             <div id="container2" class="mt-3 container" style="display:none;">
                 <h3>Solicitud para creación de nuevo usuario</h3>
                 <h4 class="text-center">En el momento que el usuario sea creado los datos del nuevo usuario serán enviados al numero de contacto</h4>
@@ -189,10 +194,10 @@
                 <!-- Botones Limpiar y Enviar -->
                 <div class="mt-4">
                     <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
-                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
+                    <button class="btn btn-success" type="button" onclick="enviarFormulario1()">Enviar</button>
                 </div>
             </div>
-
+        </form>
             <div id="container3" class="mt-3 container" style="display:none;">
                 <h3>Solicitud para creación de nueva sucursal</h3>
                 <p>Disponible próximamente</p>
@@ -323,6 +328,10 @@ function toggleSelectionPlataforma(platform) {
     
         function enviarFormulario() {
             document.querySelector('form').submit();
+        }
+
+        function enviarFormulario1() {
+            document.querySelector('form1').submit();
         }
         //texto flotante
         type="text/javascript">
