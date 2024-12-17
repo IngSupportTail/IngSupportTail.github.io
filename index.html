@@ -343,7 +343,7 @@ var camposNoObligatorios = ['DiasSeleccionados', 'plataformasactivas', 'preciopl
 for (var i = 0; i < campos.length; i++) {
     // Si el nombre del campo no está en el array, validamos que no esté vacío
     if (!camposNoObligatorios.includes(campos[i].name) && campos[i].value.trim() === '') {
-        alert('Por favor, completa todos los campos obligatorios.');
+        alert('Por favor, completa todos los campos obligatorios.' + "test");
         return; // Detiene la ejecución de la función si algún campo está vacío
     }
 }
