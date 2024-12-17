@@ -84,12 +84,19 @@
                         <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleContainer()">
-                        <label class="form-check-label" for="flexCheckSi">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckNo" onclick="toggleCheckbox('No')">
+                        <label class="form-check-label" for="flexCheckNo">
                             No
                         </label>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleCheckbox('Si')">
+                        <label class="form-check-label" for="flexCheckSi">
+                            Sí
+                        </label>
+                    </div>
                 </div>
+                
 
                 <!-- Contenedor que contiene el campo de texto y los botones -->
                 <div id="containerContent" style="display:none;">
@@ -226,15 +233,36 @@
             });
         });
         //Funcion chekboxNo
-        function toggleContainer() {
-            var checkSi = document.getElementById('flexCheckSi');
-            var containerContent = document.getElementById('containerContent');
-            if (checkSi.checked) {
-                containerContent.style.display = 'block';
-            } else {
-                containerContent.style.display = 'none';
-            }
-        }
+      //  function toggleContainer() {
+        //    var checkSi = document.getElementById('flexCheckNo');
+          //  var containerContent = document.getElementById('containerContent');
+            //if (checkSi.checked) {
+              //  containerContent.style.display = 'block';
+            //} else {
+              //  containerContent.style.display = 'none';
+          //  }
+        //}
+
+        function toggleCheckbox(selected) {
+    var checkboxNo = document.getElementById("flexCheckNo");
+    var checkboxSi = document.getElementById("flexCheckSi");
+    var contenidoAdicional = document.getElementById("contenidoAdicional");
+    var containerContent = document.getElementById('containerContent');
+
+    // Si el checkbox "No" es seleccionado, desmarcamos el checkbox "Sí"
+    if (selected === 'No') {
+        checkboxSi.checked = false; // Desmarcar "Sí"
+        containerContent.style.display = 'block';
+    }
+
+    // Si el checkbox "Sí" es seleccionado, desmarcamos el checkbox "No"
+    if (selected === 'Si') {
+        checkboxNo.checked = false; // Desmarcar "No"
+        containerContent.style.display = 'none';
+      //  contenidoAdicional.style.display = "none"; // Ocultar el contenido adicional
+    }
+} 
+
         
         function toggleContainerplataforma() {
             var checkPlataforma = document.getElementById('flexCheckplataforma');
