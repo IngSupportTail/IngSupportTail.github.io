@@ -185,7 +185,7 @@
                     <span data-placeholder="Zonas a las que tendrá acceso"></span>
                 </div>
                 <div class="box-input">
-                    <input name="CorreoPersona" id="CorreoPersona" type="text" required>
+                    <input name="CorreoPersona" id="CorreoPersona" type="email">
                     <span data-placeholder="Correo electronico para el nuevo usuario (Opcional)"></span>
                 </div>
 
@@ -330,12 +330,45 @@ function toggleSelectionPlataforma(platform) {
 
     
         function enviarFormulario() {
-            document.querySelector('#formularioboton').submit();
+            // Seleccionamos el formulario
+    var formulario = document.querySelector('#formularioboton');
+
+// Obtenemos todos los campos del formulario
+var campos = formulario.querySelectorAll('input, select, textarea');
+
+// Comprobamos si todos los campos están llenos
+for (var i = 0; i < campos.length; i++) {
+    // Si algún campo está vacío, mostramos un mensaje y evitamos el envío
+    if (campos[i].value.trim() === '') {
+        alert('Por favor, completa todos los campos.');
+        return; // Detiene la ejecución de la función si algún campo está vacío
+    }
+}
+
+// Si todos los campos están llenos, enviamos el formulario
+formulario.submit();
+}
         }
 
         function enviarFormulario1() {
-            document.querySelector('#formularioUsuario').submit();
+    // Seleccionamos el formulario
+    var formulario = document.querySelector('#formularioUsuario');
+
+    // Obtenemos todos los campos del formulario
+    var campos = formulario.querySelectorAll('input, select, textarea');
+
+    // Comprobamos si todos los campos están llenos
+    for (var i = 0; i < campos.length; i++) {
+        // Si algún campo está vacío, mostramos un mensaje y evitamos el envío
+        if (campos[i].value.trim() === '') {
+            alert('Por favor, completa todos los campos.');
+            return; // Detiene la ejecución de la función si algún campo está vacío
         }
+    }
+
+    // Si todos los campos están llenos, enviamos el formulario
+    formulario.submit();
+}
         //texto flotante
         type="text/javascript">
           $(".box-input input").on("focus", function(){
