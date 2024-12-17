@@ -147,6 +147,7 @@
                 <!--Campos ocultos-->
                 <input type="hidden" name="DiasSeleccionados" id="DiasSeleccionados">
                 <input type="hidden" name="plataformasactivas" id="plataformasactivas">
+                <input type="hidden" name="Always" id="Always">
 
         
                 <!-- Botones Limpiar y Enviar -->
@@ -246,8 +247,9 @@
         function toggleCheckbox(selected) {
     var checkboxNo = document.getElementById("flexCheckNo");
     var checkboxSi = document.getElementById("flexCheckSi");
-    var contenidoAdicional = document.getElementById("contenidoAdicional");
+    //var contenidoAdicional = document.getElementById("contenidoAdicional");
     var containerContent = document.getElementById('containerContent');
+    var hiddenInput = document.getElementById("Always");
 
     // Si el checkbox "No" es seleccionado, desmarcamos el checkbox "Sí"
     if (selected === 'No') {
@@ -259,6 +261,7 @@
     if (selected === 'Si') {
         checkboxNo.checked = false; // Desmarcar "No"
         containerContent.style.display = 'none';
+        hiddenInput.value = "Sí";
       //  contenidoAdicional.style.display = "none"; // Ocultar el contenido adicional
     }
 } 
