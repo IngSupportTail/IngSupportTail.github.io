@@ -52,52 +52,54 @@
             <form id="formularioboton" action="https://formspree.io/f/manygbrr" method="POST">
             <!-- Contenedor para la opción 1 -->
             <div id="container1" class="mt-3 container" style="display:none;">
-                <h4 class="text-center">Cualquier solicitud realizada despues de las 18:00 UTC sera atendida al dia siguiente</h4>
+                <h4 class="text-center">Las solicitudes realizadas despues de las 5:00 p.m. serán atendidas al dia siguiente</h4>
                 <h3 class="text-center">Tener en cuenta los tiempos</h3>
                 <h3 class="text-center">Solicitud para un paquete/boton nuevo</h3>
+                <h4 class="text-center">Los campos con * son obligatorios</h4>
                 
                 <div class="box-input">
                     <input name="solicita1" id="solicita1" type="text" required>
-                    <span data-placeholder="Escribe tu nombre"></span>
+                    <span data-placeholder="Escribe tu nombre *"></span>
                 </div>
                 <div class="box-input">
                     <input name="Cargo1" id="Cargo1" type="text" required>
-                    <span data-placeholder="Escribe tu cargo"></span>
+                    <span data-placeholder="Escribe tu cargo *"></span>
                 </div>
                 <div class="box-input">
                     <input name="numero de telefono" id="contacto" type="text" required>
-                    <span data-placeholder="Número de telefono"></span>
+                    <span data-placeholder="Número de telefono *"></span>
                 </div>
                 <div class="box-input">
                     <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
-                    <span data-placeholder="Sucursal o Zona donde se requiere la solicitud"></span>
+                    <span data-placeholder="Sucursal o Zona donde se requiere la solicitud *"></span>
                 </div>
                 <div class="box-input">
                     <input name="NombreBoton" id="Nombre del Boton/Paquete" type="text" required>
-                    <span data-placeholder="Escribe el nombre del Boton ó paquete"></span>
+                    <span data-placeholder="Escribe el nombre del Boton ó paquete *"></span>
                 </div>
                 <div class="box-input">
                     <input name="Producto" id="Producto principal" type="text" required>
-                    <span data-placeholder="Escribe el nombre del producto principal a vender"></span>
+                    <span data-placeholder="Escribe el nombre del producto principal a vender *"></span>
                 </div>
                 <div class="box-input">
                     <input name="Cantidad" id="Cantidad de Producto" type="text" required>
-                    <span data-placeholder="¿Que cantidad de producto lleva el paquete 0.5,1,1.5,2?"></span>
+                    <span data-placeholder="¿Que cantidad de producto lleva el paquete 0.5,1,1.5,2? *"></span>
                 </div>
                 <div class="box-input">
                     <input name="precio" id="precio" type="text" required>
-                    <span data-placeholder="Indica el precio que deberá llevar"></span>
+                    <span data-placeholder="Indica el precio que deberá llevar *"></span>
                 </div>
                 <div class="box-input">
                     <input name="extras" id="extras" type="text" required>
-                    <span data-placeholder="Si es paquete coloca los extras que deberá llevar"></span>
+                    <span data-placeholder="Si es paquete coloca los extras que deberá llevar *"></span>
                 </div>
                 <div class="box-input">
                     <input name="categoria" id="categoria" type="text" required>
-                    <span data-placeholder="Indica la categoria del menú 'Basicos,Promoción,Varios,Paquetes,Complementos' "></span>
+                    <span data-placeholder="Indica la categoria del menú 'Basicos,Promoción,Varios,Paquetes,Complementos' *"></span>
                 </div>
 
                 <!-- Checkbox para "El producto estará siempre disponible" -->
+                <h4 class="text-center">Selecciona una opción</h4>
                 <div class="container">
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
@@ -123,7 +125,7 @@
                         <label for="fechadisponible">Indica qué fechas estará disponible:</label>
                         <input type="text" class="form-control" id="fechadisponible" name="fechadisponible" placeholder="Indica qué fechas estará disponible">
                     </div>
-
+                    <h4 class="text-center">Selecciona los dias que deberá estar disponible</h4>
                     <div class="d-grid gap-2 d-md-block">
                         <button class="btn btn-outline-dark" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
                         <button class="btn btn-outline-dark" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
@@ -133,9 +135,11 @@
                         <button class="btn btn-outline-dark" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
                         <button class="btn btn-outline-dark" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
                     </div>
+                    <h4 class="text-center">-------------------------------------------------------------------------------------</h4> 
                 </div>
 
-                <!-- Checkbox para "plataforma" -->
+                <!-- Checkbox para "plataforma" --> 
+                <h4 class="text-center">Selecciona "Si" solo sí estará disponible en plataformas</h4>
                 <div class="container">
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">¿El producto estará disponible en plataformas?</label>
@@ -154,7 +158,7 @@
                         <label for="fechadisponible">Indica el precio en plataformas:</label>
                         <input type="text" class="form-control" id="precioplataformas" name="precioplataformas" placeholder="Indica precio en plataformas">
                     </div>
-
+                    <h4 class="text-center">Selecciona las plataformas</h4>
                     <div class="d-grid gap-2 d-md-block">
                         <button class="btn btn-outline-dark" type="button" id="Uber" onclick="toggleSelectionPlataforma('Uber')">Uber</button>
                         <button class="btn btn-outline-dark" type="button" id="Didi" onclick="toggleSelectionPlataforma('Didi')">Didi</button>
@@ -169,7 +173,7 @@
                 <input type="hidden" name="SIEMPREDISPONIBLE?" id="Always">
 
         
-                <!-- Botones Limpiar y Enviar -->
+                <!-- Botones Limpiar y Enviar "btn btn-danger"-->
                 <div class="mt-4">
                     <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
                     <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
@@ -181,9 +185,10 @@
             <form id="formularioUsuario"
                 action="https://formspree.io/f/mdkordqr" method="POST" >
             <div id="container2" class="mt-3 container" style="display:none;">
-                <h3>Solicitud para creación de nuevo usuario</h3>
+                <h3 class="text-center">Solicitud para creación de nuevo usuario</h3>
                 <h4 class="text-center">En el momento que el usuario sea creado los datos del nuevo usuario serán enviados al numero de contacto</h4>
-                <h4 class="text-center">Los datos serán enviados al numero de contacto (Usuario,Contraseña)</h4>
+                <h4 class="text-center">Las solicitudes realizadas despues de las 5:00 p.m. serán atendidas al dia siguiente</h4>
+                <h3 class="text-center">Tener en cuenta los tiempos</h3>
                 <div class="box-input">
                     <input name="solicita" id="solicita" type="text" required>
                     <span data-placeholder="Escribe tu nombre"></span>
@@ -194,7 +199,7 @@
                 </div>
                 <div class="box-input">
                     <input name="numerodetelefono1" id="contacto1" type="text" required>
-                    <span data-placeholder="Número de telefono"></span>
+                    <span data-placeholder="Número de contacto de la persona para indicarle sus credenciales de acceso & clave de autorización"></span>
                 </div>
                 <div class="box-input">
                     <input name="ZonaSucursal1" id="Zona/Sucursal1" type="text" required>
