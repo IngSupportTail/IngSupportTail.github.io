@@ -52,14 +52,15 @@
             <form id="formularioboton" action="https://formspree.io/f/manygbrr" method="POST">
             <!-- Contenedor para la opción 1 -->
             <div id="container1" class="mt-3 container" style="display:none;">
-                <h4 class="text-center">Las solicitudes realizadas despues de las 5:00 p.m. serán atendidas al dia siguiente</h4>
+                <h4 class="text-center">Las solicitudes pueden demorar hasta 12hrs para ser realizadas</h4>
+                <h4 class="text-center">Las solicitudes solo se gestionan en dias habiles (Lunes a Viernes)</h4>
                 <h3 class="text-center">Tener en cuenta los tiempos</h3>
                 <h3 class="text-center">Solicitud para un paquete/boton nuevo</h3>
                 <h4 class="text-center">Los campos con * son obligatorios</h4>
                 
                 <div class="box-input">
                     <input name="solicita1" id="solicita1" type="text" required>
-                    <span data-placeholder="Escribe tu nombre *"></span>
+                    <span data-placeholder="Nombre de quien solicita *"></span>
                 </div>
                 <div class="box-input">
                     <input name="Cargo1" id="Cargo1" type="text" required>
@@ -67,11 +68,11 @@
                 </div>
                 <div class="box-input">
                     <input name="numero de telefono" id="contacto" type="text" required>
-                    <span data-placeholder="Número de telefono *"></span>
+                    <span data-placeholder="Número de telefono para contacto *"></span>
                 </div>
                 <div class="box-input">
                     <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
-                    <span data-placeholder="Sucursal o Zona donde se requiere la solicitud *"></span>
+                    <span data-placeholder="Sucursal, sucursales o zona (en caso de que sea la zona completa) donde se requiere el paquete *"></span>
                 </div>
                 <div class="box-input">
                     <input name="NombreBoton" id="Nombre del Boton/Paquete" type="text" required>
@@ -79,11 +80,11 @@
                 </div>
                 <div class="box-input">
                     <input name="Producto" id="Producto principal" type="text" required>
-                    <span data-placeholder="Escribe el nombre del producto principal a vender *"></span>
+                    <span data-placeholder="Escribe el nombre del producto principal ejmplo (pollo rostizado, tacos, helado, pollo empanizado)*"></span>
                 </div>
                 <div class="box-input">
                     <input name="Cantidad" id="Cantidad de Producto" type="text" required>
-                    <span data-placeholder="¿Que cantidad de producto lleva el paquete 0.5,1,1.5,2? *"></span>
+                    <span data-placeholder="¿Que cantidad de producto lleva el paquete ejemplo: 0.5,1,1.5,2 (.5 es 1/2 1.5 es 1 1/2)? *"></span>
                 </div>
                 <div class="box-input">
                     <input name="precio" id="precio" type="text" required>
@@ -91,14 +92,14 @@
                 </div>
                 <div class="box-input">
                     <input name="extras" id="extras" type="text" required>
-                    <span data-placeholder="Si es paquete coloca los extras que deberá llevar *"></span>
+                    <span data-placeholder="Si es paquete coloca los extras que deberá llevar (esto incluye salsa tortillas complementos o refresco) porfavor escribe la cantidad del extra seguido del nombre ejemplo: salsa 2 complementos 1 *"></span>
                 </div>
                 <div class="box-input">
                     <input name="categoria" id="categoria" type="text" required>
                     <span data-placeholder="Indica la categoria del menú 'Basicos,Promoción,Varios,Paquetes,Complementos' *"></span>
                 </div>
 
-                <!-- Checkbox para "El producto estará siempre disponible" -->
+                <!-- Checkbox para "El producto estará siempre disponible"
                 <h4 class="text-center">Selecciona una opción</h4>
                 <div class="container">
                     <div class="mb-3">
@@ -116,16 +117,19 @@
                             Sí
                         </label>
                     </div>
-                </div>
+                </div> -->
                 
 
                 <!-- Contenedor que contiene el campo de texto y los botones -->
-                <div id="containerContent" style="display:none;">
+                <div id="containerContent">
                     <div id="inputDiv">
-                        <label for="fechadisponible">Indica qué fechas estará disponible:</label>
-                        <input type="text" class="form-control" id="fechadisponible" name="fechadisponible" placeholder="Indica qué fechas estará disponible">
+                        <label for="fechadisponible">Porfavor escribe en fecha la vigencia (fecha limité) que tendra el paquete:*</label>
+                        <input type="text" class="form-control" id="fechadisponible" name="fechadisponible" placeholder="Indica la vigencia del paquete" required>
+                         <label>En caso de siempre estar disponible (que nunca debe desactivarse) escribir "siempre disponible"</label> 
+                         <h4 class="text-center">-------------------------------------------------------------------------------------</h4>
                     </div>
-                    <h4 class="text-center">Selecciona los dias que deberá estar disponible</h4>
+                    
+                    <h4 class="text-center">Selecciona los dias que debe aparecer el paquete</h4>
                     <div class="d-grid gap-2 d-md-block">
                         <button class="btn btn-outline-dark" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
                         <button class="btn btn-outline-dark" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
@@ -257,38 +261,29 @@
                 containers[key].style.display = (key === selectedValue) ? "block" : "none";
             });
         });
-        //Funcion chekboxNo
-      //  function toggleContainer() {
-        //    var checkSi = document.getElementById('flexCheckNo');
-          //  var containerContent = document.getElementById('containerContent');
-            //if (checkSi.checked) {
-              //  containerContent.style.display = 'block';
-            //} else {
-              //  containerContent.style.display = 'none';
-          //  }
-        //}
+      
 
-        function toggleCheckbox(selected) {
-    var checkboxNo = document.getElementById("flexCheckNo");
-    var checkboxSi = document.getElementById("flexCheckSi");
-    //var contenidoAdicional = document.getElementById("contenidoAdicional");
-    var containerContent = document.getElementById('containerContent');
-    var hiddenInput = document.getElementById("Always");
+//         function toggleCheckbox(selected) {
+//     var checkboxNo = document.getElementById("flexCheckNo");
+//     var checkboxSi = document.getElementById("flexCheckSi");
+//     //var contenidoAdicional = document.getElementById("contenidoAdicional");
+//     var containerContent = document.getElementById('containerContent');
+//     var hiddenInput = document.getElementById("Always");
 
-    // Si el checkbox "No" es seleccionado, desmarcamos el checkbox "Sí"
-    if (selected === 'No') {
-        checkboxSi.checked = false; // Desmarcar "Sí"
-        containerContent.style.display = 'block';
-    }
+//     // Si el checkbox "No" es seleccionado, desmarcamos el checkbox "Sí"
+//     if (selected === 'No') {
+//         checkboxSi.checked = false; // Desmarcar "Sí"
+//         containerContent.style.display = 'block';
+//     }
 
-    // Si el checkbox "Sí" es seleccionado, desmarcamos el checkbox "No"
-    if (selected === 'Si') {
-        checkboxNo.checked = false; // Desmarcar "No"
-        containerContent.style.display = 'none';
-        hiddenInput.value = "Sí";
-      //  contenidoAdicional.style.display = "none"; // Ocultar el contenido adicional
-    }
-} 
+//     // Si el checkbox "Sí" es seleccionado, desmarcamos el checkbox "No"
+//     if (selected === 'Si') {
+//         checkboxNo.checked = false; // Desmarcar "No"
+//         containerContent.style.display = 'none';
+//         hiddenInput.value = "Sí";
+//       //  contenidoAdicional.style.display = "none"; // Ocultar el contenido adicional
+//     }
+// } 
 
         
         function toggleContainerplataforma() {
