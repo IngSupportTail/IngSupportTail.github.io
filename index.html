@@ -51,53 +51,64 @@
 
             <form id="formularioboton" action="https://formspree.io/f/manygbrr" method="POST">
             <!-- Contenedor para la opción 1 -->
-            <div id="container1" class="mt-3 container" style="display:none;">
-                <h4 class="text-center">Las solicitudes pueden demorar hasta 12hrs para ser realizadas</h4>
-                <h4 class="text-center">Las solicitudes solo se gestionan en dias habiles (Lunes a Viernes)</h4>
-                <h3 class="text-center">Tener en cuenta los tiempos</h3>
-                <h3 class="text-center">Solicitud para un paquete/boton nuevo</h3>
-                <h4 class="text-center">Los campos con * son obligatorios</h4>
-                
-                <div class="box-input">
-                    <input name="solicita1" id="solicita1" type="text" required>
-                    <span data-placeholder="Nombre de quien solicita *"></span>
-                </div>
-                <div class="box-input">
-                    <input name="Cargo1" id="Cargo1" type="text" required>
-                    <span data-placeholder="Escribe tu cargo *"></span>
-                </div>
-                <div class="box-input">
-                    <input name="numero de telefono" id="contacto" type="text" required>
-                    <span data-placeholder="Número de telefono para contacto *"></span>
-                </div>
-                <div class="box-input">
-                    <input name="ZonaSucursal" id="Zona/Sucursal" type="text" required>
-                    <span data-placeholder="Sucursal, sucursales o zona (en caso de que sea la zona completa) donde se requiere el paquete *"></span>
-                </div>
-                <div class="box-input">
-                    <input name="NombreBoton" id="Nombre del Boton/Paquete" type="text" required>
-                    <span data-placeholder="Escribe el nombre del Boton ó paquete *"></span>
-                </div>
-                <div class="box-input">
-                    <input name="Producto" id="Producto principal" type="text" required>
-                    <span data-placeholder="Escribe el nombre del producto principal ejmplo (pollo rostizado, tacos, helado, pollo empanizado)*"></span>
-                </div>
-                <div class="box-input">
-                    <input name="Cantidad" id="Cantidad de Producto" type="text" required>
-                    <span data-placeholder="¿Que cantidad de producto lleva el paquete ejemplo: 0.5,1,1.5,2 (.5 es 1/2 1.5 es 1 1/2)? *"></span>
-                </div>
-                <div class="box-input">
-                    <input name="precio" id="precio" type="text" required>
-                    <span data-placeholder="Indica el precio que deberá llevar *"></span>
-                </div>
-                <div class="box-input">
-                    <input name="extras" id="extras" type="text" required>
-                    <span data-placeholder="Si es paquete coloca los extras que deberá llevar (esto incluye salsa tortillas complementos o refresco) porfavor escribe la cantidad del extra seguido del nombre ejemplo: salsa 2 complementos 1 *"></span>
-                </div>
-                <div class="box-input">
-                    <input name="categoria" id="categoria" type="text" required>
-                    <span data-placeholder="Indica la categoria del menú 'Basicos,Promoción,Varios,Paquetes,Complementos' *"></span>
-                </div>
+<div id="container1" class="solicitud-container" style="display:none;">
+  <h4 class="text-center aviso">Las solicitudes pueden demorar hasta 12hrs para ser realizadas</h4>
+  <h4 class="text-center aviso">Las solicitudes solo se gestionan en días hábiles (Lunes a Viernes)</h4>
+  <h3 class="text-center titulo">Tener en cuenta los tiempos</h3>
+  <h3 class="text-center titulo">Solicitud para un paquete/botón nuevo</h3>
+  <h4 class="text-center aviso">Los campos con * son obligatorios</h4>
+
+  <form class="formulario">
+    <div class="box-input">
+      <label for="solicita1">Nombre de quien solicita *</label>
+      <input name="solicita1" id="solicita1" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="Cargo1">Escribe tu cargo *</label>
+      <input name="Cargo1" id="Cargo1" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="contacto">Número de teléfono para contacto *</label>
+      <input name="contacto" id="contacto" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="ZonaSucursal">Sucursal, sucursales o zona (en caso de que sea la zona completa) donde se requiere el paquete *</label>
+      <input name="ZonaSucursal" id="ZonaSucursal" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="NombreBoton">Nombre del botón o paquete *</label>
+      <input name="NombreBoton" id="NombreBoton" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="Producto">Escribe el nombre del producto principal ejmplo (pollo rostizado, tacos, helado, pollo empanizado)*</label>
+      <input name="Producto" id="Producto" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="Cantidad">¿Que cantidad de producto lleva el paquete ejemplo: 0.5,1,1.5,2 (.5 es 1/2 1.5 es 1 1/2)? *</label>
+      <input name="Cantidad" id="Cantidad" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="precio">Indica el precio que deberá llevar *</label>
+      <input name="precio" id="precio" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="extras">"Si es paquete coloca los extras que deberá llevar (esto incluye salsa tortillas complementos o refresco) porfavor escribe la cantidad del extra seguido del nombre ejemplo: salsa 2 complementos 1 *</label>
+      <input name="extras" id="extras" type="text" required>
+    </div>
+
+    <div class="box-input">
+      <label for="categoria">Indica la categoria del menú 'Basicos,Promoción,Varios,Paquetes,Complementos' *</label>
+      <input name="categoria" id="categoria" type="text" required>
+    </div>
+  
 
                 <!-- Checkbox para "El producto estará siempre disponible"
                 <h4 class="text-center">Selecciona una opción</h4>
@@ -124,7 +135,11 @@
                 <div id="containerContent">
                     <div id="inputDiv">
                         <label for="fechadisponible">Porfavor escribe en fecha la vigencia (fecha limité) que tendra el paquete:*</label>
+                        <h3 class="text-center">                                                                                      </h3>
+                        <h3 class="text-center">                                                                                      </h3>
                         <input type="text" class="form-control" id="fechadisponible" name="fechadisponible" placeholder="Indica la vigencia del paquete" required>
+                        <h3 class="text-center">                                                                                      </h3>
+                        <h3 class="text-center">                                                                                      </h3>
                          <label>En caso de siempre estar disponible (que nunca debe desactivarse) escribir "siempre disponible"</label> 
                          <h4 class="text-center">-------------------------------------------------------------------------------------</h4>
                     </div>
