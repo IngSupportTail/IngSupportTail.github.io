@@ -174,22 +174,46 @@ window.toggleRespuesta = function (checkId, inputId) {
   hidden.value = check.checked ? "SI" : "NO";
 };
 
-flatpickr("#fechaInput", {
-  dateFormat: "Y-m-d",
-  minDate: "today"
-});
+/* =========================
+   LIBRERÍAS (SEGURO)
+========================= */
 
-flatpickr("#fechaApertura", {
-  dateFormat: "Y-m-d",
-  minDate: "today"
-});
+const initFlatpickr = () => {
+  if (typeof flatpickr === "undefined") return;
 
-new TomSelect("#tipoSucursal", {
-  create: false,
-  sortField: {
-    field: "text",
-    direction: "asc"
+  const f1 = document.querySelector("#fechaInput");
+  if (f1) {
+    flatpickr(f1, {
+      dateFormat: "Y-m-d",
+      minDate: "today"
+    });
   }
-});
+
+  const f2 = document.querySelector("#fechaApertura");
+  if (f2) {
+    flatpickr(f2, {
+      dateFormat: "Y-m-d",
+      minDate: "today"
+    });
+  }
+};
+
+const initTomSelect = () => {
+  if (typeof TomSelect === "undefined") return;
+
+  const sel = document.querySelector("#tipoSucursal");
+  if (sel) {
+    new TomSelect(sel, {
+      create: false,
+      sortField: {
+        field: "text",
+        direction: "asc"
+      }
+    });
+  }
+};
+
+initFlatpickr();
+initTomSelect();
 
 });
