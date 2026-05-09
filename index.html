@@ -1,466 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    </head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="container">
-        <img src="/Images/pechugon-header.png" class="img-thumbnail" alt="header">
-    </div>
-    
-        <div id="alertaExito" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
-            <strong>¡Éxito!</strong> La solicitud fue enviada correctamente.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+  <title>PECHUSOLICITUD 2.0</title>
 
-        <h1 class="text-center">Bienvenido a PECHUSOLICITUD</h1>
-        <div class="container mt-5">
-           <label for="formSelect" class="form-label">Selecciona tu Pechusolicitud</label>
-            <select class="form-select" id="formSelect" aria-label="Selecciona el Formulario">
-                <option selected>Click aqui</option>
-                <option value="1">Pechusolicitud Paquete/Boton nuevo</option>
-                <option value="2">Pechusolicitud para un nuevo usuario</option>
-                <option value="3">Proximamente!</option>
-            </select>
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-            <form id="formularioboton" action="https://formspree.io/f/manygbrr" method="POST">
-            <!-- Contenedor para la opción 1 -->
-<div id="container1" class="solicitud-container" style="display:none;">
-  <h4 class="text-center aviso">Las solicitudes pueden demorar hasta 12hrs para ser realizadas</h4>
-  <h4 class="text-center aviso">Las solicitudes solo se gestionan en días hábiles (Lunes a Viernes)</h4>
-  <h3 class="text-center titulo">Tener en cuenta los tiempos</h3>
-  <h3 class="text-center titulo">Solicitud para un paquete/botón nuevo</h3>
-  <h4 class="text-center aviso">Los campos con * son obligatorios</h4>
-
-  <form class="formulario">
-    <div class="box-input">
-      <label for="solicita1">Nombre de quien solicita *</label>
-      <input name="solicita1" id="solicita1" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="Cargo1">Escribe tu cargo *</label>
-      <input name="Cargo1" id="Cargo1" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="contacto">Número de teléfono para contacto *</label>
-      <input name="contacto" id="contacto" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="ZonaSucursal">Sucursal, sucursales o zona (en caso de que sea la zona completa) donde se requiere el paquete *</label>
-      <input name="ZonaSucursal" id="ZonaSucursal" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="NombreBoton">Nombre del botón o paquete *</label>
-      <input name="NombreBoton" id="NombreBoton" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="Producto">Escribe el nombre del producto principal ejmplo (pollo rostizado, tacos, helado, pollo empanizado)*</label>
-      <input name="Producto" id="Producto" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="Cantidad">¿Que cantidad de producto lleva el paquete ejemplo: 0.5,1,1.5,2 (.5 es 1/2 1.5 es 1 1/2)? *</label>
-      <input name="Cantidad" id="Cantidad" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="precio">Indica el precio que deberá llevar *</label>
-      <input name="precio" id="precio" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="extras">"Si es paquete coloca los extras que deberá llevar (esto incluye salsa tortillas complementos o refresco) porfavor escribe la cantidad del extra seguido del nombre ejemplo: salsa 2 complementos 1 *</label>
-      <input name="extras" id="extras" type="text" required>
-    </div>
-
-    <div class="box-input">
-      <label for="categoria">Indica la categoria del menú 'Basicos,Promoción,Varios,Paquetes,Complementos' *</label>
-      <input name="categoria" id="categoria" type="text" required>
-    </div>
+  <!-- GOOGLE FONT -->
   
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
 
-                <!-- Checkbox para "El producto estará siempre disponible"
-                <h4 class="text-center">Selecciona una opción</h4>
-                <div class="container">
-                    <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">¿El producto estará siempre disponible?</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckNo" onclick="toggleCheckbox('No')">
-                        <label class="form-check-label" for="flexCheckNo">
-                            No
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckSi" onclick="toggleCheckbox('Si')">
-                        <label class="form-check-label" for="flexCheckSi">
-                            Sí
-                        </label>
-                    </div>
-                </div> -->
-                
+  <!-- TU CSS -->
+  <link rel="stylesheet" href="style.css">
 
-                <!-- Contenedor que contiene el campo de texto y los botones -->
-                <div id="containerContent">
-                    <div id="inputDiv">
-                        <label for="fechadisponible">Porfavor escribe en fecha la vigencia (fecha limité) que tendra el paquete:*</label>
-                        <h3 class="text-center">                                                                                      </h3>
-                        <h3 class="text-center">                                                                                      </h3>
-                        <input type="text" class="form-control" id="fechadisponible" name="fechadisponible" placeholder="Indica la vigencia del paquete" required>
-                        <h3 class="text-center">                                                                                      </h3>
-                        <h3 class="text-center">                                                                                      </h3>
-                         <label>En caso de siempre estar disponible (que nunca debe desactivarse) escribir "siempre disponible"</label> 
-                         <h4 class="text-center">-------------------------------------------------------------------------------------</h4>
-                    </div>
-                    
-                    <h4 class="text-center">Selecciona los dias que debe aparecer el paquete</h4>
-                    <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-outline-dark" type="button" id="lunes" onclick="toggleSelection('lunes')">Lunes</button>
-                        <button class="btn btn-outline-dark" type="button" id="martes" onclick="toggleSelection('martes')">Martes</button>
-                        <button class="btn btn-outline-dark" type="button" id="miercoles" onclick="toggleSelection('miercoles')">Miércoles</button>
-                        <button class="btn btn-outline-dark" type="button" id="jueves" onclick="toggleSelection('jueves')">Jueves</button>
-                        <button class="btn btn-outline-dark" type="button" id="viernes" onclick="toggleSelection('viernes')">Viernes</button>
-                        <button class="btn btn-outline-dark" type="button" id="sabado" onclick="toggleSelection('sabado')">Sábado</button>
-                        <button class="btn btn-outline-dark" type="button" id="domingo" onclick="toggleSelection('domingo')">Domingo</button>
-                    </div>
-                    <h4 class="text-center">-------------------------------------------------------------------------------------</h4> 
-                </div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
 
-                <!-- Checkbox para "plataforma" --> 
-                <h4 class="text-center">Selecciona "Si" solo sí estará disponible en plataformas</h4>
-                <div class="container">
-                    <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">¿El producto estará disponible en plataformas?</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckplataforma" onclick="toggleContainerplataforma()">
-                        <label class="form-check-label" for="flexCheckplataforma">
-                            Si
-                        </label>
-                    </div>
-                </div>
+<body class="bg-light">
 
-                <!-- Contenedor que contiene el campo de texto y los botones plataforma -->
-                <div id="containerContent1" style="display:none;">
-                    <div id="inputDiv">
-                        <label for="fechadisponible">Indica el precio en plataformas:</label>
-                        <input type="text" class="form-control" id="precioplataformas" name="precioplataformas" placeholder="Indica precio en plataformas">
-                    </div>
-                    <h4 class="text-center">Selecciona las plataformas</h4>
-                    <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-outline-dark" type="button" id="Uber" onclick="toggleSelectionPlataforma('Uber')">Uber</button>
-                        <button class="btn btn-outline-dark" type="button" id="Didi" onclick="toggleSelectionPlataforma('Didi')">Didi</button>
-                        <button class="btn btn-outline-dark" type="button" id="Rappi" onclick="toggleSelectionPlataforma('Rappi')">Rappi</button>
-                        <button class="btn btn-outline-dark" type="button" id="Deli" onclick="toggleSelectionPlataforma('Deli')">Deli</button>
-                    </div>
-                </div>
+<div class="container py-5">
 
-                <!--Campos ocultos-->
-                <input type="hidden" name="DiasSeleccionados" id="DiasSeleccionados">
-                <input type="hidden" name="plataformasactivas" id="plataformasactivas">
-                <input type="hidden" name="SIEMPREDISPONIBLE?" id="Always">
+  <div class="card shadow-lg border-0 form-card">
+    <div class="card-body p-4 p-md-5 text-center">
 
-        
-                <!-- Botones Limpiar y Enviar "btn btn-danger"-->
-                <div class="mt-4">
-                    <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
-                    <button class="btn btn-success" type="button" onclick="enviarFormulario()">Enviar</button>
-                </div>
+      <!-- HEADER -->
+      <img src="Images/pechugon-header.png" 
+           class="img-fluid mb-4" 
+           style="max-height: 120px;" 
+           alt="header">
+
+      <!-- ALERTA -->
+      <div id="alertaExito" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+        <strong>¡Éxito!</strong> La solicitud fue enviada correctamente.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+
+      <!-- TITULO -->
+      <h1 class="fw-bold mb-3">
+        PECHUSOLICITUD
+      </h1>
+
+      <p class="text-muted mb-4 fs-4">
+        Selecciona el tipo de solicitud
+      </p>
+
+      <!-- TARJETAS -->
+      <div class="row g-4 justify-content-center">
+
+        <!-- BOTON -->
+        <div class="col-12 col-md-4">
+          <div class="card option-card h-100 shadow-sm"
+               onclick="location.href='boton.html'">
+            <div class="card-body p-4 text-center">
+              <i class="bi bi-ui-checks-grid display-5 mb-3"></i>
+              <h5 class="fw-bold">Solicitar Botón Nuevo</h5>
+              <p class="text-muted mb-4 fs-5">Crear nuevo paquete o botón</p>
             </div>
-        </form>
-            <!-- Contenedor para otras opciones -->
-
-            <form id="formularioUsuario"
-                action="https://formspree.io/f/mdkordqr" method="POST" >
-            <div id="container2" class="mt-3 container" style="display:none;">
-                <h3 class="text-center">Solicitud para creación de nuevo usuario</h3>
-                <h4 class="text-center">En el momento que el usuario sea creado los datos del nuevo usuario serán enviados al numero de contacto</h4>
-                <h4 class="text-center">Las solicitudes realizadas despues de las 5:00 p.m. serán atendidas al dia siguiente</h4>
-                <h3 class="text-center">Tener en cuenta los tiempos</h3>
-                <div class="box-input">
-                    <input name="solicita" id="solicita" type="text" required>
-                    <span data-placeholder="Escribe tu nombre"></span>
-                </div>
-                <div class="box-input">
-                    <input name="Cargo" id="Cargo" type="text" required>
-                    <span data-placeholder="Escribe tu cargo"></span>
-                </div>
-                <div class="box-input">
-                    <input name="numerodetelefono1" id="contacto1" type="text" required>
-                    <span data-placeholder="Número de contacto de la persona para indicarle sus credenciales de acceso & clave de autorización"></span>
-                </div>
-                <div class="box-input">
-                    <input name="ZonaSucursal1" id="Zona/Sucursal1" type="text" required>
-                    <span data-placeholder="Sucursal o Zona donde se requiere la solicitud"></span>
-                </div>
-                <div class="box-input">
-                    <input name="NombrePersona" id="NombrePersona" type="text" required>
-                    <span data-placeholder="Escribe el nombre completo de la persona que requiere el usuario"></span>
-                </div>
-                <div class="box-input">
-                    <input name="CargoPersona" id="CargoPersona" type="text" required>
-                    <span data-placeholder="Escribe el cargo de la persona (Gerente,Encargado,Supervisor,RH Zona etc...)"></span>
-                </div>
-                <div class="box-input">
-                    <input name="ZonaPersona" id="ZonaPersona" type="text" required>
-                    <span data-placeholder="Zonas a las que tendrá acceso"></span>
-                </div>
-                <div class="box-input">
-                    <input name="CorreoPersona" id="CorreoPersona" type="email">
-                    <span data-placeholder="Correo electronico para el nuevo usuario (Opcional)"></span>
-                </div>
-
-                <!-- Botones Limpiar y Enviar -->
-                <div class="mt-4">
-                    <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Limpiar</button>
-                    <button class="btn btn-success" type="button" onclick="enviarFormulario1()">Enviar</button>
-                </div>
-            </div>
-        </form>
-      <form
-        action="https://formspree.io/f/"
-        method="POST"
-         >
-            <div id="container3" class="mt-3 container" style="display:none;">
-                <h3>Solicitud para creación de nueva sucursal</h3>
-                <p>Disponible próximamente</p>
-            </div>
+          </div>
         </div>
-    </form>
-       
-    
 
-    <script>
-        // Función para mostrar el contenedor según la opción seleccionada
-        const select = document.getElementById("formSelect");
-        const containers = {
-            1: document.getElementById("container1"),
-            2: document.getElementById("container2"),
-            3: document.getElementById("container3")
-        };
+        <!-- USUARIO -->
+        <div class="col-12 col-md-4">
+          <div class="card option-card h-100 shadow-sm"
+               onclick="location.href='usuario.html'">
+            <div class="card-body p-4 text-center">
+              <i class="bi bi-person-badge display-5 mb-3"></i>
+              <h5 class="fw-bold">Solicitar Usuario</h5>
+              <p class="text-muted mb-4 fs-5">Alta de nuevo usuario</p>
+            </div>
+          </div>
+        </div>
 
-        select.addEventListener("change", function() {
-            const selectedValue = this.value;
-            Object.keys(containers).forEach(key => {
-                containers[key].style.display = (key === selectedValue) ? "block" : "none";
-            });
-        });
-      
+        <!-- SUCURSAL -->
+        <div class="col-12 col-md-4">
+          <div class="card option-card h-100 shadow-sm"
+               onclick="location.href='sucursal.html'">
+            <div class="card-body p-4 text-center">
+             <i class="bi bi-shop display-5 mb-3"></i>
+              <h5 class="fw-bold">Apertura de Sucursal</h5>
+              <p class="text-muted mb-4 fs-5">Registrar nueva sucursal</p>
+            </div>
+          </div>
+        </div>
 
-//         function toggleCheckbox(selected) {
-//     var checkboxNo = document.getElementById("flexCheckNo");
-//     var checkboxSi = document.getElementById("flexCheckSi");
-//     //var contenidoAdicional = document.getElementById("contenidoAdicional");
-//     var containerContent = document.getElementById('containerContent');
-//     var hiddenInput = document.getElementById("Always");
+      </div>
 
-//     // Si el checkbox "No" es seleccionado, desmarcamos el checkbox "Sí"
-//     if (selected === 'No') {
-//         checkboxSi.checked = false; // Desmarcar "Sí"
-//         containerContent.style.display = 'block';
-//     }
+    </div>
+  </div>
 
-//     // Si el checkbox "Sí" es seleccionado, desmarcamos el checkbox "No"
-//     if (selected === 'Si') {
-//         checkboxNo.checked = false; // Desmarcar "No"
-//         containerContent.style.display = 'none';
-//         hiddenInput.value = "Sí";
-//       //  contenidoAdicional.style.display = "none"; // Ocultar el contenido adicional
-//     }
-// } 
+</div>
 
-        
-        function toggleContainerplataforma() {
-            var checkPlataforma = document.getElementById('flexCheckplataforma');
-            var containerContent1 = document.getElementById('containerContent1');
-            if (checkPlataforma.checked) {
-                containerContent1.style.display = 'block';
-            } else {
-                containerContent1.style.display = 'none';
-            }
-        }
-        //Funcion CheckboxSi
-// Función para alternar la selección de los días
-function toggleSelection(day) {
-    var button = document.getElementById(day);
-    var diasSeleccionados = document.getElementById('DiasSeleccionados');
-    var selectedDays = diasSeleccionados.value.split(',').filter(Boolean);  // Evitar valores vacíos
-
-    // Alternar el botón entre seleccionado y no seleccionado
-    if (button.classList.contains('btn-outline-dark')) {
-        button.classList.remove('btn-outline-dark');
-        button.classList.add('btn-dark');
-
-        // Agregar el día a la lista de días seleccionados
-        if (!selectedDays.includes(day)) {
-            selectedDays.push(day);
-        }
-    } else {
-        button.classList.remove('btn-dark');
-        button.classList.add('btn-outline-dark');
-
-        // Eliminar el día de la lista de días seleccionados
-        const index = selectedDays.indexOf(day);
-        if (index > -1) {
-            selectedDays.splice(index, 1);
-        }
-    }
-
-    // Actualizar el campo oculto con los días seleccionados
-    DiasSeleccionados.value = selectedDays.join(',');
-}
-
-// Función para alternar la selección de las plataformas
-function toggleSelectionPlataforma(platform) {
-    var button = document.getElementById(platform);
-    var plataformasSeleccionadas = document.getElementById('plataformasactivas');
-    var selectedPlatforms = plataformasSeleccionadas.value.split(',').filter(Boolean);  // Evitar valores vacíos
-
-    // Alternar el botón entre seleccionado y no seleccionado
-    if (button.classList.contains('btn-outline-dark')) {
-        button.classList.remove('btn-outline-dark');
-        button.classList.add('btn-dark');
-
-        // Agregar la plataforma a la lista de plataformas seleccionadas
-        if (!selectedPlatforms.includes(platform)) {
-            selectedPlatforms.push(platform);
-        }
-    } else {
-        button.classList.remove('btn-dark');
-        button.classList.add('btn-outline-dark');
-
-        // Eliminar la plataforma de la lista de plataformas seleccionadas
-        const index = selectedPlatforms.indexOf(platform);
-        if (index > -1) {
-            selectedPlatforms.splice(index, 1);
-        }
-    }
-
-    // Actualizar el campo oculto con las plataformas seleccionadas
-    plataformasactivas.value = selectedPlatforms.join(',');
-}
-
-        function limpiarFormulario() {
-    // Restablecer el formulario
-    document.querySelector('form').reset();
-
-    // Ocultar todos los contenedores
-    Object.values(containers).forEach(container => container.style.display = 'none');
-
-    // Resetear los checkboxes
-    document.getElementById('flexCheckSi').checked = false;
-    document.getElementById('flexCheckplataforma').checked = false;
-
-    // Ocultar los contenedores relacionados a los checkboxes
-    document.getElementById('containerContent').style.display = 'none';
-    document.getElementById('containerContent1').style.display = 'none';
-
-    // Restablecer los botones seleccionados dias plataformas
-    var buttons = document.querySelectorAll('.btn-outline-primary');
-    buttons.forEach(function(button) {
-        button.classList.remove('btn-primary');
-        button.classList.add('btn-outline-primary');
-    });
-}
-
-    
-function enviarFormulario() {
-    // Seleccionamos el formulario
-    var formulario = document.querySelector('#formularioboton');
-    
-    // Obtenemos todos los campos del formulario (input, select, textarea)
-    var campos = formulario.querySelectorAll('input, select, textarea');
-
-    // Array con los nombres de los campos que no son obligatorios
-    var camposNoObligatorios = ['DiasSeleccionados', 'plataformasactivas', 'precioplataformas', 'fechadisponible'];
-
-    // Comprobamos si todos los campos están llenos excepto los que están en camposNoObligatorios
-    for (var i = 0; i < campos.length; i++) {
-        var campo = campos[i];
-
-        // Ignorar campos de tipo select
-        if (campo.tagName.toLowerCase() === 'select') {
-            continue; // Salta los campos select
-        }
-
-        // Validamos solo los campos que están visibles y son obligatorios
-        if (!campo.hasAttribute('name')) continue; // Asegurarse de que el campo tenga atributo "name"
-        if (campo.type === 'hidden') continue; // No validar campos ocultos
-
-        // Si el campo no está en el array de campos no obligatorios, validamos que no esté vacío
-        if (!camposNoObligatorios.includes(campo.name) && campo.value.trim() === '') {
-            alert('Por favor, completa todos los campos obligatorios.');
-            return; // Detiene la ejecución si algún campo obligatorio está vacío
-        }
-    }
-
-    // Si todos los campos obligatorios están llenos, enviamos el formulario
-    formulario.submit();
-}
-
-        
-
-        function enviarFormulario1() {
-    // Seleccionamos el formulario
-    var formulario = document.querySelector('#formularioUsuario');
-
-    // Obtenemos todos los campos del formulario
-    var campos = formulario.querySelectorAll('input, select, textarea');
-
-    // Comprobamos si todos los campos están llenos
-    for (var i = 0; i < campos.length; i++) {
-        // Si algún campo está vacío, mostramos un mensaje y evitamos el envío
-        if (campos[i].name !== 'CorreoPersona' && campos[i].value.trim() === '') {
-            alert('Por favor, completa todos los campos obligatorios.');
-            return; // Detiene la ejecución de la función si algún campo está vacío
-        }
-    }
-
-    // Si todos los campos están llenos, enviamos el formulario
-    formulario.submit();
-}
-        //texto flotante
-        type="text/javascript">
-          $(".box-input input").on("focus", function(){
-              $(this).addClass("focus");
-          });
-
-          $(".box-input input").on("blur", function(){
-              if($(this).val() == ""){
-                  $(this).removeClass("focus");
-              }
-          });
-    </script>
+<script src="script.js"></script>
 </body>
 </html>

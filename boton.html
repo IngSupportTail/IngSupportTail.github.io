@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Solicitud de Boton</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container py-5">
+
+  <div class="card shadow-lg border-0 form-card">
+    <div class="card-body p-4 p-md-5">
+
+        <a href="index.html" class="btn btn-outline-secondary btn-back">
+  ← Atrás
+</a>
+
+      <h2 class="text-center mb-3 fw-bold">
+        Solicitud de Botón / Paquete
+      </h2>
+
+      <p class="text-center text-muted mb-4">
+        Completa todos los campos para procesar tu solicitud
+      </p>
+
+<form id="formularioboton" action="https://formspree.io/f/manygbrr" method="POST">
+
+<div class="row g-3">
+
+  <div class="col-12 text-center">
+    <p class="text-muted mb-1">Solicitar los botones de promociones con tiempo</p>
+    <p class="text-muted mb-1">Las solicitudes pueden demorar hasta 12hrs</p>
+    <p class="text-muted">Las solicitudes solo seran atendidas los dias habiles (Lunes a Viernes)</p>
+    <p class="text-muted">Los campos con * son obligatorios</p>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">Nombre de quien solicita*</label>
+    <input class="form-control form-control-lg" name="solicita1" required>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Cargo*</label>
+    <input class="form-control form-control-lg" name="Cargo1" required>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Teléfono*</label>
+    <input type="number" class="form-control form-control-lg" name="contacto" required>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">Zona / Sucursal*</label>
+    <input class="form-control form-control-lg" name="ZonaSucursal" required>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">Nombre del botón*</label>
+    <input class="form-control form-control-lg" name="NombreBoton" required>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Producto*</label>
+    <input class="form-control form-control-lg" name="Producto" required>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Cantidad*</label>
+    <input type="number" class="form-control form-control-lg" name="Cantidad" required>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Precio*</label>
+    <input type="number" class="form-control form-control-lg" name="precio" required>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Categoría*</label>
+    <input class="form-control form-control-lg" name="categoria" required>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Bolsitas de salsa</label>
+    <input type="number" class="form-control form-control-lg" name="bolsitassalsa">
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Chiles Toreados</label>
+    <input type="number" class="form-control form-control-lg" name="chilestoreados">
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Tortilla para pollo</label>
+    <input type="number" class="form-control form-control-lg" name="tortillapollo">
+    <small class="text-muted">Considerar 1 tortilla para pollo = paquete 4 tortillas</small>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">Extras fijos</label>
+    <input class="form-control form-control-lg" name="extras">
+    <small class="text-muted">Escribir extras que no se puedan elegir (ejemplo: 1 ensalada coditos, 4 tacos)</small>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">Numero de Complementos a escoger -los que no son fijos-</label>
+    <input type="number" class="form-control form-control-lg" name="numerocomplementos">
+    <small class="text-muted">Escribir solo el numero de complementos que se pueden elegir</small>
+  </div>
+
+  <!-- FECHA (siempre obligatoria) -->
+<div class="col-12">
+  <label class="form-label">Vigencia*</label>
+
+  <input 
+  type="text"
+  id="fechaInput"
+  class="form-control form-control-lg" 
+  name="fechadisponible"
+  required>
+
+</div>
+
+<!-- CHECKBOX -->
+<div class="form-check form-switch mt-3 d-flex align-items-center justify-content-center">
+
+  <input 
+    class="form-check-input switch-lg"
+    type="checkbox"
+    id="siempreCheck"
+    onclick="toggleDias()">
+
+  <label class="form-check-label ms-3 fw-semibold">
+    Siempre disponible
+  </label>
+
+</div>
+
+<!-- CONTENEDOR DE DÍAS -->
+<div id="contenedorDias" class="mt-4">
+
+  <h5 class="text-center mb-3">Días disponibles</h5>
+
+  <div class="d-flex flex-wrap gap-2 justify-content-center">
+        <button id="lunes" class="btn btn-outline-dark" type="button" onclick="toggleSelection('lunes')">Lunes</button>
+        <button id="martes" class="btn btn-outline-dark" type="button" onclick="toggleSelection('martes')">Martes</button>
+        <button id="miercoles" class="btn btn-outline-dark" type="button" onclick="toggleSelection('miercoles')">Miércoles</button>
+        <button id="jueves" class="btn btn-outline-dark" type="button" onclick="toggleSelection('jueves')">Jueves</button>
+        <button id="viernes" class="btn btn-outline-dark" type="button" onclick="toggleSelection('viernes')">Viernes</button>
+        <button id="sabado" class="btn btn-outline-dark" type="button" onclick="toggleSelection('sabado')">Sábado</button>
+        <button id="domingo" class="btn btn-outline-dark" type="button" onclick="toggleSelection('domingo')">Domingo</button>
+  </div>
+
+</div>
+
+<!-- PLATAFORMAS -->
+ <div class="mt-4">
+<div class="form-check form-switch d-flex justify-content-center">
+  <input 
+    class="form-check-input switch-lg" 
+    type="checkbox" 
+    id="flexCheckplataforma"
+    onclick="toggleContainerplataforma()">
+
+  <label 
+  class="form-check-label ms-3 fw-semibold">
+  Disponible en plataformas
+</label>
+</div>
+    </div>
+
+
+<div id="containerContent1" class="mt-3" style="display:none;">
+  <div class="mb-3">
+
+   
+    <label class="form-label">Selecciona las plataformas donde estará disponible</label>
+<div class="d-flex flex-wrap gap-2 justify-content-center">
+    <button type="button" id="Uber" class="btn btn-outline-dark" type="button" onclick="toggleSelectionPlataforma('Uber')">Uber</button>
+    <button type="button" id="Didi" class="btn btn-outline-dark" type="button" onclick="toggleSelectionPlataforma('Didi')">Didi</button>
+    <button type="button" id="Rappi" class="btn btn-outline-dark" type="button" onclick="toggleSelectionPlataforma('Rappi')">Rappi</button>
+    <button type="button" id="Deli" class="btn btn-outline-dark" type="button" onclick="toggleSelectionPlataforma('Deli')">Deli</button>
+     <button type="button" id="ServDom" class="btn btn-outline-dark" type="button" onclick="toggleSelectionPlataforma('ServDom')">Servicio a Domicilio</button>
+  </div>
+</div>  
+
+    <label class="form-label">Precio en plataformas</label>
+    <input type="number "class="form-control form-control-lg" name="precioplataformas">
+    <small class="text-muted">Los precios de Uber,Didi,Rappi son el mismo</small>
+
+    <div class="mb-3">
+    <label class="form-label">Precio en Deli (si aplica)</label>
+    <input type="number" class="form-control form-control-lg" name="preciodeli">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Precio en Servicio a Domicilio (si aplica)</label>
+    <input type="number" class="form-control form-control-lg" name="precioservdom">
+  </div>
+
+</div>
+
+  
+
+ 
+
+<!-- HIDDEN -->
+<input type="hidden" name="DiasSeleccionados" id="DiasSeleccionados">
+<input type="hidden" name="plataformasactivas" id="plataformasactivas">
+<input type="hidden" name="SIEMPREDISPONIBLE" id="Always">
+
+<!-- BOTONES -->
+<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+  <button class="btn btn-outline-danger px-4" type="button" onclick="limpiarFormulario('formularioboton')">
+    Limpiar
+  </button>
+
+  <button class="btn btn-success px-4" type="button" onclick="enviarFormulario()">
+    Enviar
+  </button>
+</div>
+
+</form>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="script.js"></script>
+</body>
+</html>

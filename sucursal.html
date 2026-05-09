@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Sucursal</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container py-5">
+
+  <!-- CARD CENTRADA -->
+  <div class="card shadow-lg border-0 form-card">
+
+    <div class="card-body p-4 p-md-5">
+
+        <a href="index.html" class="btn btn-outline-secondary btn-back">
+  ← Atrás
+</a>
+
+      <h2 class="text-center mb-4 fw-bold">
+        Solicitud de Usuario
+      </h2>
+
+      <p class="text-center text-muted mb-4">
+        Completa todos los campos para procesar tu solicitud
+      </p>
+
+      <form id="formularioSucursal" action="https://formspree.io/f/mjkvdndj" method="POST">
+
+        <div class="row g-3">
+
+                    <div class="col-12">
+            <label class="form-label">Tipo de Sucursal*</label>
+
+            <select id="tipoSucursal" class="form-select" name="tipodeSucursal" required>
+                <option value="">Selecciona una opción</option>
+                <option value="COCINA">COCINA</option>
+                <option value="POLLOJR">POLLO JR</option>
+                <option value="POLLONORMAL">POLLO NORMAL</option>
+                <option value="KINGKRUNCH">KING KRUNCH</option>
+                <option value="PALETERIA">PALETERÍA</option>
+            </select>
+
+            <small class="text-muted">Selecciona el tipo de sucursal</small>
+            </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label">Menu de Referencia*</label>
+            <input class="form-control form-control-lg" name="menuReferencia" required>
+            <small class="text-muted">De que sucursal se debe copiar el menu</small>
+          </div>
+
+          <div class="col-12">
+                <label class="form-label">Fecha de apertura*</label>
+
+                <input 
+                type="text"
+                id="fechaApertura"
+                class="form-control form-control-lg" 
+                name="fechadeapertura"
+                required>
+
+            </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label">Zona*</label>
+            <input class="form-control form-control-lg" name="Zona" required>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Nombre de la nueva sucursal*</label>
+            <input class="form-control form-control-lg" name="nombreSucursal" required>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Dirección de la nueva sucursal*</label>
+            <input class="form-control form-control-lg" name="ubicacionsucursal" required>
+            <small class="text-muted">Calle, Numero, Colonia, CP, Ciudad</small>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label">Nombre de quien solicita*</label>
+            <input class="form-control form-control-lg" name="NombrePersona" required>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label">Horario de la Sucursal*</label>
+            <input class="form-control form-control-lg" name="Horario" required>
+            <small class="text-muted">Horario apertura y cierre</small>
+          </div>
+
+          <div class="mb-4">
+
+        <div class="col-12 col-md-6">
+            <label class="form-label">Tiempo Coccion Pollo (min)*</label>
+            <input type="number" class="form-control form-control-lg" name="coccionPollo" required>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label">Cantidad de preparado (grs)*</label>
+            <input type="number" class="form-control form-control-lg" name="cantidadPreparado" required>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Cuantos tacos deben salir de 1 pollo*</label>
+            <input type="number" class="form-control form-control-lg" name="tacosXpollo" required>
+          </div>
+
+  <!-- INGRESOS -->
+<label class="form-label d-block">
+  ¿Ingresos solicitan clave de autorización?
+</label>
+
+<div class="form-check form-switch mb-3">
+  <input 
+    class="form-check-input switch-lg"
+    type="checkbox"
+    id="ingresosCheck"
+    onchange="toggleRespuesta('ingresosCheck','ingresosValue')">
+
+  <label class="form-check-label ms-2" for="ingresosCheck">
+    Selecciona para activar la clave de autorización para ingresos
+  </label>
+</div>
+
+<input type="hidden" name="ingresos_autorizacion" id="ingresosValue" value="NO">
+
+
+<!-- SALIDAS -->
+<label class="form-label d-block">
+  ¿Salidas solicitan clave de autorización?
+</label>
+
+<div class="form-check form-switch mb-3">
+  <input 
+    class="form-check-input switch-lg"
+    type="checkbox"
+    id="salidasCheck"
+    onchange="toggleRespuesta('salidasCheck','salidasValue')">
+
+  <label class="form-check-label ms-2" for="salidasCheck">
+    Selecciona para activar la clave de autorización para salidas
+  </label>
+</div>
+
+<input type="hidden" name="salidas_autorizacion" id="salidasValue" value="NO">
+
+
+<!-- TRASPASOS -->
+<label class="form-label d-block">
+  ¿Traspasos solicitan clave de autorización?
+</label>
+
+<div class="form-check form-switch mb-3">
+  <input 
+    class="form-check-input switch-lg"
+    type="checkbox"
+    id="traspasosCheck"
+    onchange="toggleRespuesta('traspasosCheck','traspasosValue')">
+
+  <label class="form-check-label ms-2" for="traspasosCheck">
+    Selecciona para activar la clave de autorización para traspasos
+  </label>
+</div>
+
+<input type="hidden" name="traspasos_autorizacion" id="traspasosValue" value="NO">
+
+
+</div>
+
+          <div class="col-12">
+            <label class="form-label">Encabezado Ticket*</label>
+            <input class="form-control form-control-lg" name="encabezadoTicekt" required>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Footer Ticket*</label>
+            <input class="form-control form-control-lg" name="footerTicket" type="email">
+          </div>
+
+        </div>
+
+        <!-- BOTONES -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+
+          <button type="button"
+                  class="btn btn-outline-danger px-4"
+                  onclick="limpiarFormulario('formularioSucursal')">
+            Limpiar
+          </button>
+
+          <button type="button"
+                  class="btn btn-success px-4"
+                  onclick="enviarFormulario2()">
+            Enviar solicitud
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

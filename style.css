@@ -1,95 +1,192 @@
-*{
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	font-family: "Montserrat", sans-serif;
+/* =========================
+   BASE / RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-	min-height: 100vh;
-	background-image: linear-gradient(120deg, #9ab1f1, #2a2dc4);
+body {
+  font-family: 'Baloo 2', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #9ab1f1, #2a2dc4);
+  color: #1f1f1f;
 }
 
-.formulario{
-	width: 360px;
-	background: #060000;
-	height: 400px;
-	padding: 80px 40px;
-	border-radius: 10px;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.2);
+/* =========================
+   TIPOGRAFÍA
+========================= */
+h1, h2, h3, h4, h5 {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
-.form-label h1{
-	text-align: center;
-	margin-bottom: 60px;
-	color: #333;
-	font-weight: 600;
+p {
+  margin: 0;
 }
 
-.box-input{
-	border-bottom: 2px solid #020202;
-	position: relative;
-	margin: 30px 0;
+/* =========================
+   CONTAINER CARD PRINCIPAL
+========================= */
+.form-card {
+  max-width: 850px;
+  margin: auto;
+  border-radius: 20px;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
 }
 
-.box-input input{
-	font-size: 16px;
-	color: #333;
-	border: none;
-	width: 100%;
-	outline: none;
-	background: none;
-	padding: 0 5px;
-	height: 40px;
+/* =========================
+   INPUTS GENERALES
+========================= */
+.form-control,
+.form-select,
+.flatpickr-input {
+  border-radius: 14px !important;
+  padding: 14px 16px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e7eb;
+  transition: all 0.25s ease;
 }
 
-.box-input span::before{
-	content: attr(data-placeholder);
-	position: absolute;
-	top: 50%;
-	left: 5px;
-	color: #000000;
-	transform: translateY(-50%);
-	z-index: -1;
-	transition: .5s;
+.form-control:focus,
+.form-select:focus,
+.flatpickr-input:focus {
+  border-color: #2a2dc4;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(42,45,196,0.15);
+  outline: none;
 }
 
-.box-input span::after{
-	content: '';
-	position: absolute;
-	width: 0%;
-	height: 2px;
-	background: linear-gradient(120deg, #3498db, #8e44ad);
-	transition: .5s;
+/* =========================
+   LABELS
+========================= */
+.form-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #2b2b2b;
 }
 
-.focus + span::before{
-	top: -5px;
+/* =========================
+   BOTONES GENERALES
+========================= */
+.btn {
+  border-radius: 14px !important;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-.focus + span::after{
-	width: 100%;
+/* success / danger más modernos */
+.btn-success {
+  background: #22c55e;
+  border: none;
 }
 
-.boton{
-	display: block;
-	width: 100%;
-	height: 50px;
-	background-color: #48bb78;
-	border: solid 2px #48bb78;
-	color: #fff;
-	border-radius: 5px;
-	font-weight: 600;
-	font-size: 18px;
-	box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.1);
+.btn-success:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
 }
 
-.boton:hover{
-	background-color: #2F855A;
-	border: solid 2px #2F855A;
-	transition: .5s;
+.btn-danger {
+  background: #ef4444;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   BOTONES SELECCIÓN (DÍAS / PLATAFORMAS)
+========================= */
+.btn-outline-dark {
+  border-radius: 12px;
+  padding: 8px 14px;
+  margin: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-dark:hover {
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  border-radius: 12px;
+}
+
+/* =========================
+   SWITCH (TOGGLE GRANDE)
+========================= */
+.switch-lg {
+  transform: scale(1.6);
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* =========================
+   CARD INDEX (OPCIONES)
+========================= */
+.option-card {
+  border-radius: 18px;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.option-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.15);
+}
+
+.option-card i,
+.option-card .fs-1 {
+  color: #2a2dc4;
+}
+
+/* =========================
+   FLATPICKR (CALENDARIO BONITO)
+========================= */
+.flatpickr-calendar {
+  border-radius: 14px !important;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.18) !important;
+  font-family: 'Baloo 2', sans-serif;
+}
+
+.flatpickr-day.selected {
+  background: #2a2dc4 !important;
+  border-color: #2a2dc4 !important;
+}
+
+/* =========================
+   SELECT (MEJOR LOOK)
+========================= */
+.form-select {
+  appearance: none;
+}
+
+/* =========================
+   UTILIDADES
+========================= */
+.text-muted {
+  color: #6b7280 !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .form-card {
+    margin: 12px;
+  }
+
+  .btn-outline-dark {
+    font-size: 14px;
+  }
 }
