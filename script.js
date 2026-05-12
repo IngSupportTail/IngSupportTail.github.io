@@ -48,7 +48,7 @@ if (formBoton) {
       }
     }
 
-    formBoton.submit();
+    formBoton.requestSubmit();
   };
 }
   /* =========================
@@ -76,7 +76,7 @@ if (formUsuario) {
       }
     }
 
-    formUsuario.submit();
+    formUsuario.requestSubmit();
   };
 }
   /* =========================
@@ -104,7 +104,7 @@ if (formSucursal) {
       }
     }
 
-    formSucursal.submit();
+    formSucursal.requestSubmit();
   };
 }
 
