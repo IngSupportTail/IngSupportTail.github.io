@@ -27,11 +27,14 @@
 </a>
 
       <h2 class="text-center mb-4 fw-bold">
-        Solicitud de Usuario
+        Apertura de sucursal
       </h2>
 
-      <p class="text-center text-muted mb-4">
+      <p class="text-center text-muted mb-2">
         Completa todos los campos para procesar tu solicitud
+      </p>
+      <p class="text-center text-muted mb-4">
+        Los campos con * son obligatorios
       </p>
 
       <form id="formularioSucursal" action="https://formspree.io/f/mjkvdndj" method="POST">
@@ -59,6 +62,11 @@
             <small class="text-muted">De que sucursal se debe copiar el menu</small>
           </div>
 
+          <div class="col-12 col-md-6">
+            <label class="form-label">Teléfono de contacto*</label>
+            <input class="form-control form-control-lg" name="numerodetelefono3" required>
+          </div>
+
           <div class="col-12">
                 <label class="form-label">Fecha de apertura*</label>
 
@@ -71,7 +79,7 @@
 
             </div>
 
-          <div class="col-12 col-md-6">
+          <div class="col-12">
             <label class="form-label">Zona*</label>
             <input class="form-control form-control-lg" name="Zona" required>
           </div>
@@ -84,7 +92,13 @@
           <div class="col-12">
             <label class="form-label">Dirección de la nueva sucursal*</label>
             <input class="form-control form-control-lg" name="ubicacionsucursal" required>
-            <small class="text-muted">Calle, Numero, Colonia, CP, Ciudad</small>
+            <small class="text-muted">Calle y Numero</small>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Codigo Postal de la nueva sucursal*</label>
+            <input class="form-control form-control-lg" name="ubicacionsucursalcodigopostal" required>
+            <small class="text-muted">Colonia, CP y Ciudad</small>
           </div>
 
           <div class="col-12 col-md-6">
@@ -98,21 +112,21 @@
             <small class="text-muted">Horario apertura y cierre</small>
           </div>
 
-          <div class="mb-4">
-
-        <div class="col-12 col-md-6">
-            <label class="form-label">Tiempo Coccion Pollo (min)*</label>
-            <input type="number" class="form-control form-control-lg" name="coccionPollo" required>
+          <div class="col-12 col-md-6">
+            <label class="form-label">Tiempo Coccion Pollo (min)</label>
+            <input type="number" class="form-control form-control-lg" name="coccionPollo">
           </div>
 
           <div class="col-12 col-md-6">
-            <label class="form-label">Cantidad de preparado (grs)*</label>
-            <input type="number" class="form-control form-control-lg" name="cantidadPreparado" required>
+            <label class="form-label">Cantidad de preparado (grs)</label>
+            <input type="number" class="form-control form-control-lg" name="cantidadPreparado">
           </div>
 
+          <div class="mb-4">
+
           <div class="col-12">
-            <label class="form-label">Cuantos tacos deben salir de 1 pollo*</label>
-            <input type="number" class="form-control form-control-lg" name="tacosXpollo" required>
+            <label class="form-label">Cuantos tacos deben salir de 1 pollo</label>
+            <input type="number" class="form-control form-control-lg" name="tacosXpollo">
           </div>
 
   <!-- INGRESOS -->
@@ -180,11 +194,13 @@
           <div class="col-12">
             <label class="form-label">Encabezado Ticket*</label>
             <input class="form-control form-control-lg" name="encabezadoTicekt" required>
+            <small class="text-muted">El encabezado de ticket es la informacion de la parte superior del ticket</small>
           </div>
 
           <div class="col-12">
             <label class="form-label">Footer Ticket*</label>
             <input class="form-control form-control-lg" name="footerTicket" type="email">
+            <small class="text-muted">El footer de ticket es la información de contacto al final del ticket</small>
           </div>
 
         </div>

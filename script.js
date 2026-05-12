@@ -20,55 +20,93 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
   const formBoton = document.getElementById("formularioboton");
 
-  if (formBoton) {
+if (formBoton) {
 
-    window.enviarFormulario = function () {
+  window.enviarFormulario = function () {
 
-      const campos = formBoton.querySelectorAll("input, textarea, select");
+    const campos = formBoton.querySelectorAll("input, textarea, select");
 
-      const ignorar = [
-        "DiasSeleccionados",
-        "plataformasactivas",
-        "precioplataformas",
-        "SIEMPREDISPONIBLE"
-      ];
+    const ignorar = [
+      "DiasSeleccionados",
+      "plataformasactivas",
+      "precioplataformas",
+      "SIEMPREDISPONIBLE"
+    ];
 
-      for (let c of campos) {
-        if (!c.name) continue;
-        if (c.type === "hidden") continue;
-        if (ignorar.includes(c.name)) continue;
+    for (let c of campos) {
 
-        if (c.value.trim() === "") {
-          alert("Completa todos los campos obligatorios");
-          return;
-        }
+      if (!c.name) continue;
+      if (c.type === "hidden") continue;
+      if (ignorar.includes(c.name)) continue;
+
+      // SOLO validar campos required
+      if (c.hasAttribute("required") && c.value.trim() === "") {
+
+        alert("Completa todos los campos obligatorios");
+        c.focus();
+        return;
       }
+    }
 
-      formBoton.submit();
-    };
-  }
-
+    formBoton.submit();
+  };
+}
   /* =========================
      USUARIO FORM
   ========================= */
   const formUsuario = document.getElementById("formularioUsuario");
 
-  if (formUsuario) {
-    window.enviarFormulario1 = function () {
-      formUsuario.submit();
-    };
-  }
+if (formUsuario) {
 
+  window.enviarFormulario1 = function () {
+
+    const campos = formUsuario.querySelectorAll("input, textarea, select");
+
+    for (let c of campos) {
+
+      if (!c.name) continue;
+      if (c.type === "hidden") continue;
+
+      // SOLO validar required
+      if (c.hasAttribute("required") && c.value.trim() === "") {
+
+        alert("Completa todos los campos obligatorios");
+        c.focus();
+        return;
+      }
+    }
+
+    formUsuario.submit();
+  };
+}
   /* =========================
      Sucursal FORM
   ========================= */
   const formSucursal = document.getElementById("formularioSucursal");
 
-  if (formSucursal) {
-    window.enviarFormulario2 = function () {
-      formSucursal.submit();
-    };
-  }
+if (formSucursal) {
+
+  window.enviarFormulario2 = function () {
+
+    const campos = formSucursal.querySelectorAll("input, textarea, select");
+
+    for (let c of campos) {
+
+      if (!c.name) continue;
+      if (c.type === "hidden") continue;
+
+      // SOLO validar required
+      if (c.hasAttribute("required") && c.value.trim() === "") {
+
+        alert("Completa todos los campos obligatorios");
+        c.focus();
+        return;
+      }
+    }
+
+    formSucursal.submit();
+  };
+}
 
   /* =========================
      LIMPIAR (GLOBAL)
