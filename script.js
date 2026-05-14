@@ -123,7 +123,61 @@ if (formSucursal) {
       btn.classList.add("btn-outline-dark");
     });
   };
+ /* =========================
+     TICKET
+  ========================= */
 
+  const nombre = document.querySelector('[name="nombreSucursal"]');
+const direccion = document.querySelector('[name="ubicacionsucursal"]');
+const correo = document.querySelector('[name="correoFacturacion"]');
+const telefono = document.querySelector('[name="telefonoFacturacion"]');
+
+const tNombre = document.getElementById("tNombre");
+const tDireccion = document.getElementById("tDireccion");
+const tCorreo = document.getElementById("tCorreo");
+const tTelefono = document.getElementById("tTelefono");
+const tFecha = document.getElementById("tFecha");
+const tTotal = document.getElementById("tTotal");
+
+const precio1 = 209;
+const precio2 = 269;
+
+function actualizarTicket() {
+
+  if (!tNombre) return; // seguridad básica
+
+  tNombre.textContent =
+    (nombre?.value || "SUCURSAL").toUpperCase();
+
+  tDireccion.textContent =
+    direccion?.value || "Dirección";
+
+  tCorreo.textContent =
+    "Correo: " + (correo?.value || "-----");
+
+  tTelefono.textContent =
+    "Tel: " + (telefono?.value || "-----");
+
+  tFecha.textContent =
+    new Date().toLocaleString();
+
+  tTotal.textContent =
+  "$" + (precio1 + precio2);
+
+  //console.log("ticket actualizado:", nombre?.value);
+}
+
+// 🔥 escuchar cambios en vivo
+const inputs = [nombre, direccion, correo, telefono];
+
+inputs.forEach(input => {
+  if (input) {
+    input.addEventListener("input", actualizarTicket);
+  }
+});
+
+// inicial
+actualizarTicket();
   /* =========================
      TOGGLES
   ========================= */

@@ -23,8 +23,8 @@
     <div class="card-body p-4 p-md-5">
 
         <a href="index.html" class="btn btn-outline-secondary btn-back">
-  ← Atrás
-</a>
+      ← Atrás
+       </a>
 
       <h2 class="text-center mb-4 fw-bold">
         Apertura de sucursal
@@ -191,16 +191,14 @@
 
               </div>
 
-          <div class="col-12">
-            <label class="form-label">Encabezado Ticket*</label>
-            <input class="form-control form-control-lg" name="encabezadoTicekt" required>
-            <small class="text-muted">El encabezado de ticket es la informacion de la parte superior del ticket</small>
+          <div class="col-12 col-md-6">
+            <label class="form-label">Correo de Facturación*</label>
+            <input class="form-control form-control-lg" name="correoFacturacion" required>
           </div>
 
-          <div class="col-12">
-            <label class="form-label">Footer Ticket*</label>
-            <input class="form-control form-control-lg" name="footerTicket" type="email">
-            <small class="text-muted">El footer de ticket es la información de contacto al final del ticket</small>
+          <div class="col-12 col-md-6">
+            <label class="form-label">Telefono de Facturación*</label>
+            <input class="form-control form-control-lg" name="telefonoFacturacion" type="number" required>
           </div>
 
         </div>
@@ -223,6 +221,52 @@
         </div>
 
       </form>
+
+      <!-- 🧾 TICKET PREVIEW -->
+<div class="mb-4 mt-5">
+  <p class="text-center text-muted">
+    Este es un ejemplo del ticket de la sucursal
+  </p>
+
+  <div class="ticket">
+    <div class="ticket-content">
+
+      <div class="title" id="tNombre">SUCURSAL</div>
+      <div class="small" id="tDireccion">Dirección</div>
+      <div class="small" id="tFecha"></div>
+
+      <hr>
+
+      <div class="item">
+        <span>1 x Pechugón</span>
+        <span>$209</span>
+      </div>
+
+      <div class="item">
+        <span>1 x Paquete Clásico</span>
+        <span>$269</span>
+      </div>
+
+      <hr>
+
+      <div class="total">
+        <span>TOTAL</span>
+        <span id="tTotal">$478</span>
+      </div>
+
+      <hr>
+
+      <div class="small">FACTURACIÓN</div>
+      <div id="tCorreo">Correo: -----</div>
+      <div id="tTelefono">Tel: -----</div>
+
+      <hr>
+
+      <div class="small">¡GRACIAS POR SU COMPRA!</div>
+
+    </div>
+  </div>
+</div>
 
     </div>
   </div>

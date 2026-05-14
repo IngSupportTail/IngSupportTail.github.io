@@ -190,3 +190,47 @@ p {
     font-size: 14px;
   }
 }
+.ticket {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border: 1px solid #eee;
+}
+
+.ticket-content {
+  text-align: center;
+}
+
+.ticket hr {
+  border: none;
+  border-top: 1px dashed #ccc;
+  margin: 12px 0;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.small {
+  font-size: 12px;
+  color: #666;
+}
+
+.item, .total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 15px;
+}
